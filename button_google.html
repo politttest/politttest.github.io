@@ -1,0 +1,130 @@
+<html>
+
+<head>
+  <meta name="google-signin-client_id"
+    content="284318167721-k411kukei8mleqes7vbq7q97s24j5c12.apps.googleusercontent.com">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/8.2.1/firebase-ui-auth.css" />
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- Кнопка авторизации -->
+  <div id="my-signin2"></div>
+  <script id="Authentication">
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 200,
+        'height': 30,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
+  <!-- Конец нопки авторизации -->
+
+
+
+
+  <!-- Добавьте SDK Firebase и инициализируйте Firebase 
+    Insert these scripts at the bottom of the HTML, but before you use any Firebase services 
+    Add Firebase products that you want to use 
+    Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/8.2.1/firebase-ui-auth.js"></script>
+
+
+
+  <!-- Чтобы инициализировать Firebase в своем приложении, вам необходимо предоставить конфигурацию проекта Firebase вашего приложения. -->
+
+
+
+  klass <input type="text" id="klass"> <br>
+  subject <input type="text" id="subject"> <br>
+  time <input type="text" id="time"> <br>
+
+  <button id="insert">INSERT</button>
+  <button id="select">SELECT</button>
+  <button id="update">UPDATE</button>
+  <button id="delete">DELETE</button>
+
+  <script id="MainScript">
+    var firebaseConfig = {
+      apiKey: "AIzaSyAY5l-gAkhqDdabvglE7sUbvCKSjsXh5fU",
+      authDomain: "politttest.firebaseapp.com",
+      databaseURL: "https://politttest.firebaseio.com",
+      projectId: "politttest",
+      storageBucket: "politttest.appspot.com",
+      messagingSenderId: "284318167721",
+      appId: "1:284318167721:web:c82cbe8f464fc46d9f2fb8",
+      measurementId: "G-QPJVREDDSF"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+
+
+
+
+    var subjectV, klassV, timeV;
+    var index = 0; //This program with 'index' onetimes
+
+    function Ready() {
+      klassV = document.getElementById('klass').value;
+      subjectV = document.getElementById('subject').value;
+      timeV = document.getElementById('time').value;
+    }
+//---------------------------INSERT DATE---------------------------//
+    document.getElementById('insert').onclick = function () {
+      Ready();
+      index = index + 1; //This program with 'index' onetimes
+      // set autoindex instead klassV!
+      firebase.database().ref('politttest').child().set({
+        klass: klassV,
+        subject: subjectV,
+        time: timeV,
+      });
+    }
+//---------------------------SELECT DATE---------------------------//
+    document.getElementById('select').onclick = function() {
+      Ready();
+      firebase.database().ref('politttest').on('value', function(snapshot){
+        document.getElementById('klass').value = snapshot.val().klass;
+        document.getElementById('subject').value = snapshot.val().subject;
+        document.getElementById('time').value = snapshot.val().time;
+      });
+    }
+//---------------------------UPDATE DATE---------------------------//
+    document.getElementById('update').onclick = function () {
+      Ready();
+      firebase.database().ref(klassV).update({
+        klass: klassV,
+        subject: subjectV,
+        time: timeV,
+      });
+    }
+//---------------------------DELETE DATE---------------------------//
+    document.getElementById('delete').onclick = function () {
+      Ready();
+      firebase.database().ref(klassV).remove();
+    }
+  </script>
+  }
+</body>
+
+</html>
