@@ -4,6 +4,7 @@
   <meta name="google-signin-client_id"
     content="284318167721-k411kukei8mleqes7vbq7q97s24j5c12.apps.googleusercontent.com">
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/8.2.1/firebase-ui-auth.css" />
+  <link rel="stylesheet" href="style_button_google.css">
   <style>
 
   </style>
@@ -11,7 +12,7 @@
 
 <body>
   <!-- Кнопка авторизации -->
-  <div id="my-signin2"></div>
+  <!-- <div id="my-signin2"></div>
   <script id="Authentication">
     function onSuccess(googleUser) {
       console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
@@ -31,7 +32,7 @@
       });
     }
   </script>
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script> -->
   <!-- Конец нопки авторизации -->
 
 
@@ -53,15 +54,36 @@
   <!-- Чтобы инициализировать Firebase в своем приложении, вам необходимо предоставить конфигурацию проекта Firebase вашего приложения. -->
 
 
+  Клас <input type="text" id="klass"> <br>
+  Назва тесту <input type="text" id="name_of_test"> <br>
+  Предмет <input type="text" id="subject"> <br>
+  Час <input type="text" id="time"> <br>
 
-  klass <input type="text" id="klass"> <br>
-  subject <input type="text" id="subject"> <br>
-  time <input type="text" id="time"> <br>
+  <script>
+    var index = 1;
+
+    function addAnswer(){
+      index += 1;
+        
+      }
+  </script>
+
+  <form class="question">
+    Запитання <textarea type="text" class="name_of_question"></textarea> <input class="add_answer" type="button" value="Добавити відповідь" onclick="addAnswer()"> <br>
+    <div id="">
+      <span id="name_question">Відповідь </span> 
+      <!--<script> name_question.innerText += " "+index; </script> -->
+      <textarea type="text" class="name_of_answer"></textarea>
+    </div>
+
+
+  </form>
 
   <button id="insert">INSERT</button>
   <button id="select">SELECT</button>
   <button id="update">UPDATE</button>
   <button id="delete">DELETE</button>
+
 
   <script id="MainScript">
     var firebaseConfig = {
@@ -81,30 +103,33 @@
 
 
 
-    var subjectV, klassV, timeV;
+    var subjectT, klassT, timeT, nameT;
     var index = 0; //This program with 'index' onetimes
 
     function Ready() {
-      klassV = document.getElementById('klass').value;
-      subjectV = document.getElementById('subject').value;
-      timeV = document.getElementById('time').value;
+      nameT = document.getElementById('name_of_test').value;
+      klassT = document.getElementById('klass').value;
+      subjectT = document.getElementById('subject').value;
+      timeT = document.getElementById('time').value;
     }
 //---------------------------INSERT DATE---------------------------//
     document.getElementById('insert').onclick = function () {
       Ready();
       index = index + 1; //This program with 'index' onetimes
       // set autoindex instead klassV!
-      firebase.database().ref(klassV).set({
-        klass: klassV,
-        subject: subjectV,
-        time: timeV,
+      firebase.database().ref(klassT).set({
+        klass: klassT,
+        name_of_test: nameT,
+        subject: subjectT,
+        time: timeT,
       });
     }
 //---------------------------SELECT DATE---------------------------//
     document.getElementById('select').onclick = function() {
       Ready();
-      firebase.database().ref(klassV).on('value', function(snapshot){
+      firebase.database().ref(klassT).on('value', function(snapshot){
         document.getElementById('klass').value = snapshot.val().klass;
+        document.getElementById('name_of_test').value = snapshot.val().name_of_test;
         document.getElementById('subject').value = snapshot.val().subject;
         document.getElementById('time').value = snapshot.val().time;
       });
@@ -112,19 +137,19 @@
 //---------------------------UPDATE DATE---------------------------//
     document.getElementById('update').onclick = function () {
       Ready();
-      firebase.database().ref(klassV).update({
-        klass: klassV,
-        subject: subjectV,
-        time: timeV,
+      firebase.database().ref(klassT).update({
+        klass: klassT,
+        name_of_test: nameT,
+        subject: subjectT,
+        time: timeT,
       });
     }
 //---------------------------DELETE DATE---------------------------//
     document.getElementById('delete').onclick = function () {
       Ready();
-      firebase.database().ref(klassV).remove();
+      firebase.database().ref(klassT).remove();
     }
   </script>
-  }
 </body>
 
 </html>
