@@ -103,7 +103,7 @@
 //---------------------------SELECT DATE---------------------------//
     document.getElementById('select').onclick = function() {
       Ready();
-      firebase.database().ref('politttest').on('value', function(snapshot){
+      firebase.database().ref(klassV).on('value', function(snapshot){
         document.getElementById('klass').value = snapshot.val().klass;
         document.getElementById('subject').value = snapshot.val().subject;
         document.getElementById('time').value = snapshot.val().time;
