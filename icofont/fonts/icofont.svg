@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+<font id="icofont" horiz-adv-x="1000" >
+<font-face font-family="IcoFont" font-weight="400" font-style="Regular" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="facebook" horiz-adv-x="1000" unicode="&#xed37;" d="M703 504h-138v91c0 34 22 42 38 42h98v150l-135 1c-149 0-183-112-183-184v-100h-86v-154h86v-437h182v437h122l16 154z" />
+<glyph glyph-name="instagram" horiz-adv-x="1000" unicode="&#xed46;" d="M499 607c-141 0-257-115-257-256 0-142 116-257 257-257 142 0 257 115 257 257 0 141-115 256-257 256z m0-415c-87 0-159 71-159 159 0 87 72 158 159 158 88 0 159-71 159-158 0-88-71-159-159-159z m210 653h-420c-157 0-284-128-284-285v-419c0-157 127-285 284-285h420c157 0 285 128 285 285v419c0 157-128 285-285 285z m187-704c0-103-84-187-187-187h-420c-103 0-186 84-186 187v419c0 103 83 187 186 187h420c103 0 187-84 187-187v-419z m-136 541c-37 0-68-31-68-68 0-37 30-67 68-67 37 0 67 30 67 67s-30 68-67 68z" />
+</font>
+</defs>
+</svg>
