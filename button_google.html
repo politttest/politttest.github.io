@@ -1,80 +1,52 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="uk">
 <head>
-  <meta name="google-signin-client_id"
-    content="284318167721-k411kukei8mleqes7vbq7q97s24j5c12.apps.googleusercontent.com">
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/8.2.1/firebase-ui-auth.css" />
-  <link rel="stylesheet" href="style_button_google.css">
-  <style>
-
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="google-signin-client_id" content="284318167721-k411kukei8mleqes7vbq7q97s24j5c12.apps.googleusercontent.com"> -->
+  <link rel="stylesheet" href="css/style_button_google.css">
 </head>
 
-<body>
-  <!-- Кнопка авторизации -->
-  <!-- <div id="my-signin2"></div>
-  <script id="Authentication">
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
-    function onFailure(error) {
-      console.log(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 200,
-        'height': 30,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    }
-  </script>
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script> -->
-  <!-- Конец нопки авторизации -->
-
-
-
-
-  <!-- Добавьте SDK Firebase и инициализируйте Firebase 
-    Insert these scripts at the bottom of the HTML, but before you use any Firebase services 
-    Add Firebase products that you want to use 
-    Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<body> 
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.1firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/8.2.1/firebase-ui-auth.js"></script>
+  <script src="js/Authentication.js"></script>
+
+  <button class="button_auth" onclick="Authentication();"></button>
 
 
-
-  <!-- Чтобы инициализировать Firebase в своем приложении, вам необходимо предоставить конфигурацию проекта Firebase вашего приложения. -->
-
-
-  Клас <input type="text" id="klass"> <br>
-  Назва тесту <input type="text" id="name_of_test"> <br>
-  Предмет <input type="text" id="subject"> <br>
-  Час <input type="text" id="time"> <br>
+  <span class="klass"> Клас </span><input type="text" class="content_klass" id="klass"> <br>
+  <span class="name_of_test"> Назва тесту </span><textarea type="text" class="content_name_of_test" id="name_of_test"></textarea> <br>
+  <span class="subject"> Предмет </span><input type="text" class="content_subject" id="subject"> <br>
+  <span class="time"> Час проходження тесту</span><input type="text" class="content_time" id="time"> <br>
 
   <script>
-    var index = 1;
 
     function addAnswer(){
-      index += 1;
+      
         
       }
+
   </script>
 
   <form class="question">
-    Запитання <textarea type="text" class="name_of_question"></textarea> <input class="add_answer" type="button" value="Добавити відповідь" onclick="addAnswer()"> <br>
-    <div id="">
-      <span id="name_question">Відповідь </span> 
-      <!--<script> name_question.innerText += " "+index; </script> -->
-      <textarea type="text" class="name_of_answer"></textarea>
-    </div>
+
+    <span> Запитання </span> <textarea type="text" id="question_1"></textarea> <br>
+    <span> Запитання </span> <textarea type="text" id="question_2"></textarea> <br>
+    <span> Запитання </span> <textarea type="text" id="question_3"></textarea> <br>
+    <span> Запитання </span> <textarea type="text" id="question_4"></textarea> <br>
+    <br>
+    <br>
+    <br>
+
+    <span> Кількість балів за правильну відповідь: </span> <input type="text" style="width: 20px;"> <br>
+    <input class="add_answer" type="button" value="Добавити відповідь" onclick="addAnswer()"> <br>
+    <span> Відповідь </span> 
+    <textarea type="text" class="name_of_answer"></textarea>
+
 
 
   </form>
@@ -86,44 +58,33 @@
 
 
   <script id="MainScript">
-    var firebaseConfig = {
-      apiKey: "AIzaSyAY5l-gAkhqDdabvglE7sUbvCKSjsXh5fU",
-      authDomain: "politttest.firebaseapp.com",
-      databaseURL: "https://politttest.firebaseio.com",
-      projectId: "politttest",
-      storageBucket: "politttest.appspot.com",
-      messagingSenderId: "284318167721",
-      appId: "1:284318167721:web:c82cbe8f464fc46d9f2fb8",
-      measurementId: "G-QPJVREDDSF"
-    };
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
 
-
-
-
-
-    var subjectT, klassT, timeT, nameT;
-    var index = 0; //This program with 'index' onetimes
+    var subjectT, klassT, timeT, nameT, question_1T, question_2T, question_3T, question_4T;
 
     function Ready() {
       nameT = document.getElementById('name_of_test').value;
       klassT = document.getElementById('klass').value;
       subjectT = document.getElementById('subject').value;
       timeT = document.getElementById('time').value;
+      question_1T = document.getElementById('question_1').value;
+      question_2T = document.getElementById('question_2').value;
+      question_3T = document.getElementById('question_3').value;
+      question_4T = document.getElementById('question_4').value;
     }
 //---------------------------INSERT DATE---------------------------//
     document.getElementById('insert').onclick = function () {
       Ready();
-      index = index + 1; //This program with 'index' onetimes
-      // set autoindex instead klassV!
-      firebase.database().ref(klassT).set({
+      var psh =  firebase.database().ref().child('/tests/').push();
+      //document.write(firebase.database().ref().child('/tests/').push().key);
+      psh.update({
         klass: klassT,
         name_of_test: nameT,
         subject: subjectT,
         time: timeT,
+        id: psh.key,
       });
     }
+
 //---------------------------SELECT DATE---------------------------//
     document.getElementById('select').onclick = function() {
       Ready();

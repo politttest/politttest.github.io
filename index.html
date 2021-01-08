@@ -7,19 +7,26 @@
 	<meta name="google-signin-client_id" content="529560107564-k8c2q5abqq98s1c8tob2i3vviidl5p1m.apps.googleusercontent.com">
 	
 	<link rel="SHORTCUT ICON" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png/450px-%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png" type="image/x-icon">
-	<link rel="stylesheet" href="style_index.css">
-	<link rel="stylesheet" href="icofont.css">
+	<link rel="stylesheet" href="css/style_index.css">
+	<link rel="stylesheet" href="icofont/icofont.css">
 	<title>Document</title>	
 </head>
 <body>
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+ 	<script src="js/Authentication.js"></script>
 	<div class="full">
 		<div class="header">
-				<img src="img/gerb.png" alt="" class="gerb">
+				<img src="css/img/gerb.png" alt="" class="gerb">
 				<p class="politest">Politest</p>
 
 				<div class="menu-main">
-  					<div><a href="index.html">Учень</a></div>
-  					<div><a href="index.html">Вчитель</a></div>
+					<button class="button_auth" onclick="Authentication();">Авторизація</button>
+  					<!--<div><a href="index.html">Учень</a></div>
+  					<div><a href="index.html">Вчитель</a></div> -->
   				</div>
 
 				<div href="" class="way_to_polit">
@@ -38,7 +45,7 @@
 		</div>
 		<ul class="menu" id="menu">
 			<li class="menu_subject">
-				<a data-name="История" href="button_google.html" id="history" class="way_to_menu">История</a>
+				<a data-name="История" id="history" class="way_to_menu" onclick="Authentication();">История</a>
 			</li>
 			<li class="menu_subject">
 				<a data-name="Программирование" href="" id="programm" class="way_to_menu even">Программирование</a>
@@ -59,28 +66,12 @@
 		<div class="footer">
 			<div class="to_header">
 				<a href="#">
-					<p class="way_to_header" style="">&#5169;</p>
+					<p class="way_to_header">&#5169;</p>
 				</a>
 			</div>
 
 			<div class="g-signin2" data-onsuccess="onSignIn"></div>
 		</div>
 	</div>
-
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script src="politest_js.js"></script>
-
-
-<!-- Firebase to HTML -->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.1.1/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-
 </body>
 </html>
