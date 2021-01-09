@@ -13,14 +13,15 @@
  	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
  	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
  	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-    <script src="js/Authentication.js"></script>   
+    <script src="js/Authentication.js"></script> 
+    <script src="js/MainMenu_toAll.js"></script>  
     <center>
         <div id="block_img_google"><img src="" alt="" id="img_google"></div>
         <div id="name_google">Федірко Владислав</div>
         <div id="email_google">vladfedirko11@gmail.com</div>
-        <button class="button_on_menu"><a href="" style="color: white;">Тести</a></button>
-        <button class="button_on_menu"><a href="create_test.html" style="color: white;">Створити тест</a></button>
-        <button class="button_on_menu"><a href="" style="color: white;">Класи</a></button>
+        <button class="button_on_menu" onclick="to_tests();">Тести</button>
+        <button class="button_on_menu" onclick="to_create_test();">Створити тест</button>
+        <button class="button_on_menu" onclick=""><a href="" style="color: white;">Класи</a></button>
     </center>
     <script src="js/infa.js"></script>
 </body>
