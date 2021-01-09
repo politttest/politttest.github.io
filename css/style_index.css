@@ -33,9 +33,6 @@ width: 11px;
 display: none;
 }
 
-
-
-
 *{
 	margin: 0px;
 	padding: 0px;
@@ -80,17 +77,20 @@ body{
 .menu-main {
   padding: 3.5vh 0 0px;
   text-align: center;
+  border: none;
 }
 .menu-main button {
 	display: inline-block;
 	border: none;
 	background-color: transparent;
+	font-size: 30px;
 }
 .menu-main button:after {
   content: "";
   color: white;
   display: inline-block;
   vertical-align:top;
+  border: none;
 }
 
 
@@ -104,9 +104,10 @@ body{
   text-transform: uppercase;
   display: inline-block;
   transition: color .2s;
+  border: none;
 }
-.menu-main button, .menu-main button:visited {color: white;}
-.menu-main button:hover{color: white;}
+.menu-main button, .menu-main button:visited {color: white;   border: none;}
+.menu-main button:hover{color: white;   border: none;}
 .menu-main button:before, .menu-main button:after {
   content: "";
   position: absolute;
@@ -117,9 +118,17 @@ body{
   bottom: -5px;
   background: white;
   transition: .9s;
+  border: none;
 }
-.menu-main button:hover:before {left: 0;}
-.menu-main button:hover:after {right: 0;} 
+.menu-main button:hover:before {left: 0;   border: none;}
+.menu-main button:hover:after {right: 0;   border: none;} 
+
+
+
+
+
+
+
 
 
 
