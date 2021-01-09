@@ -34,7 +34,7 @@ function Authentication(){  firebase.auth().signInWithPopup(provider).then((resu
   document.location.href = "MainMenu.html";
 
 }).catch((error) => {
-  //console.log(error)
+  console.log(error)
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
