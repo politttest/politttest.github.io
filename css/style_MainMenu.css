@@ -13,10 +13,6 @@ center{
     width: 100px;
     height: 100px;
 }
-img_google{
-    width: 100px;
-    height: 100px;
-}
 #name_google{
     font-size: 18px;
     font-weight: 600;
@@ -39,3 +35,37 @@ img_google{
     color: white;
     box-shadow: 1px 1px 3px grey;
 }
+.button_on_menu:hover{
+    display: block;
+    width: 300px;
+    margin: 10px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 14px;
+    background-color: rgb(45, 45, 179);
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+}
+#button_on_menu1{
+    display: block;
+    width: 300px;
+    margin: 10px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 14px;
+    background-color: midnightblue;
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+}
+#button_on_menu1:hover{
+    display: block;
+    width: 300px;
+    margin: 10px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 14px;
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+    background-color: rgb(45, 45, 179);
+}
+
