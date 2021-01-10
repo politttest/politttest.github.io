@@ -19,15 +19,19 @@
     border-radius: 14px;
 }
 #save_button:hover{
+    padding: 10px;
+    outline: none;
     color: white;
     background-color: rgb(45, 45, 179);
     border: none;
     border-radius: 14px;
 }
 #go_to_MainMenu{
+    padding: 10px;
+    outline: none;
     display: block;
     width: 250px;
-    height: 40px;
+    height: 60px;
     font-size: 17px;
     color: white;
     background-color: midnightblue;
@@ -36,20 +40,23 @@
     margin: 20px;
 }
 #go_to_MainMenu:hover{
-    display: block;
-    width: 250px;
-    height: 40px;
-    font-size: 17px;
-    color: white;
     background-color: rgb(45, 45, 179);
-    border: none;
-    border-radius: 14px;
-    margin: 20px;
 }
 .enter_pole_create_test{
     border: none;
     width: 280px;
-    height: 25px;
+}
+.enter_pole_create_test::before{
+    border: none;
+}
+.enter_pole_create_test::after{
+    border: none;
+}
+.enter_pole_create_test:hover::before{
+    border: none;
+}
+.enter_pole_create_test:hover::after{
+    border: none;
 }
 .select{
     position: relative;
