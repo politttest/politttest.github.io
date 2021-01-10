@@ -19,12 +19,12 @@
 
         <fieldset action="" class="pole_create_test">
             <legend>Назва тесту</legend>
-            <input type="text" id="name_of_the_test" class="enter_pole_create_test">
+            <input style="outline: none;" type="text" id="name_of_the_test" class="enter_pole_create_test">
         </fieldset>
 
         <fieldset action="" class="pole_create_test" id="pole_create">
             <legend>Клас</legend>
-            <select class="select" id="klass">
+            <select style="outline: none;" class="select" id="klass">
                 <option selected value="o1">8-й клас</option>
                 <option value="o2">9-й клас</option>
                 <option value="o3">10-й клас</option>
@@ -32,24 +32,22 @@
             </select>
         </fieldset>
 
+
         <fieldset action="" class="pole_create_test">
             <legend>Предмет</legend>
-            <select class="select" id="subject">
-                <option>Історія</option>
-                <option>Біологія</option>
-                <option>Програмування</option>
-                <option>Робототехніка</option>
+            <select style="outline: none;" class="select" id="subject">
             </select>
         </fieldset>
 
         <fieldset action="" class="pole_create_test">
-            <legend>Час проходження тесту</legend>
-            <input type="text" id="time" class="enter_pole_create_test">
+            <legend>Час проходження тесту (у хвилинах)</legend>
+            <input style="outline: none;" type="number" id="time" class="enter_pole_create_test">
         </fieldset>
-
+<script src="js/save_test.js"></script> 
         <button id="save_button" onclick="save_the_test();">Зберегти</button>
         <button id="go_to_MainMenu" onclick="to_MainMenu();">Повернутися до головної сторінки</button>
     </center>
-    <script src="js/save_test.js"></script>
+
+<script src="js/load_subjects.js"></script>   
 </body>
 </html>

@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="SHORTCUT ICON" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png/450px-%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style_tests.css">
-    <title>Document</title>
+    <title>Створення тесту</title>
 </head>
-<body>
+<body id="body_on_tests">
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script> 
     <script src="js/save_test.js"></script>
-    <center class="block_of_button_on_back_to_MainMenu">
+    <div style="height: 80px; width: 100%;"> 
+    <div class="sticky">
         <button id="button_on_back_to_MainMenu" onclick="to_MainMenu();">Повернутися до головної сторінки</button>
-    </center>
-    <a href="" class="block_form_for_test">
-        <div class="form_for_test">
-            <p class="name_of_test">Перша світова війна. Україна.</p>
-            <p class="klass_of_test">0-й клас</p>
-            <p class="subject_of_test">Всесвітня історія</p>
-            <p class="time_of_test">Час проходження тесту 15 хвилин</p>
-        </div>
-    </a>
+    </div>
+    </div>
+    <script src="js/Authentication.js"></script>
+    <script src="js/load_tests.js"></script>
+    <div class="all_tests" id="all_tests">
+
+    </div>
 </body>
 </html>
