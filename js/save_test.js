@@ -6,12 +6,13 @@ var klss, klss_text, sbjct, sbjct_text, tm_text, nm_text;
               sbjct = document.getElementById("subject");
               sbjct_text = sbjct.options[sbjct.selectedIndex].text; //информация с поля "предмет"
               tm_text = time.value; //информация с поля "время"
-              nm_text = name_of_the_test.value; //информация с поля "название теста"
+              nm_text = document.getElementById("name_of_the_test").value; //информация с поля "название теста"
+              
               //console.log(klss_text)
               //console.log(sbjct_text)
               //console.log(name_of_the_test.value)
               //console.log(time.value)  
-          }
+          };
 
           function to_MainMenu(){
               document.location.href = "MainMenu.html";
@@ -22,6 +23,10 @@ var klss, klss_text, sbjct, sbjct_text, tm_text, nm_text;
               output_information_about_klass();
               var psh =  firebase.database().ref().child('/tests/').push();
               //document.write(firebase.database().ref().child('/tests/').push().key);
+              if (nm_text == "") {
+              window.alert("поле: 'Назва теста' має бути заповненим!"); 
+              return;
+            }
               psh.update({
               klass: klss_text,
               name_of_test: nm_text,
@@ -31,4 +36,6 @@ var klss, klss_text, sbjct, sbjct_text, tm_text, nm_text;
               //console.log(nm_text)
           })
               document.getElementById("save_button").style.backgroundColor = "darkgrey";
+              document.getElementById("save_button").onclick = "";
+              window.alert("Тест було створено. Щоб добавити питання/учнів або редагувати тест - натисніть на кнопку 'Тести' на головному меню.");
           };

@@ -1,7 +1,7 @@
 var photoURL_google,  displayName_google, email_google, element_google_photo;
 
   // Переменная для подключения к конкретной базе данных.
-  var firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyAY5l-gAkhqDdabvglE7sUbvCKSjsXh5fU",
     authDomain: "politttest.firebaseapp.com",
     databaseURL: "https://politttest.firebaseio.com",
@@ -30,12 +30,12 @@ function Authentication(){  firebase.auth().signInWithPopup(provider).then((resu
   localStorage.setItem('photoURL_google', user.photoURL);
   localStorage.setItem('displayName_google', user.displayName);
   localStorage.setItem('email_google', user.email);
+  //console.log(user);
   // Переход на Главную страницу в случае успешной авторизации.
   document.location.href = "MainMenu.html";
 
 }).catch((error) => {
-  console.log(error)
-  window.alert(error);
+  //console.log(error)
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
