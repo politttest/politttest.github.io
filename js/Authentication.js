@@ -18,7 +18,7 @@ var photoURL_google,  displayName_google, email_google, element_google_photo;
   // Создайте экземпляр объекта поставщика Google:
 var provider = new firebase.auth.GoogleAuthProvider();
 
-function Authentication(){  firebase.auth().signInWithPopup(provider).then((result) => {
+function Authentication(){  firebase.auth().signInWithRedirect(provider).then((result) => {
 
   /** @type {firebase.auth.OAuthCredential} */
   var credential = result.credential;
