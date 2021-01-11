@@ -28,8 +28,8 @@ var klss, klss_text, sbjct, sbjct_text, tm_text, nm_text;
               return;
             }
               psh.update({
-              klass: klss_text,
-              name_of_test: nm_text,
+              c1ass: klss_text,
+              title: nm_text,
               subject: sbjct_text,
               time: tm_text,
               id: psh.key,

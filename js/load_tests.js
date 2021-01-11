@@ -2,6 +2,15 @@ const databaseRef = firebase.database().ref("/tests/");
 
 var value, id_of_the_test, klass_of_the_test, name_of_the_test, subject_of_the_test, time_of_the_test;
 var i = 0;
+var j = 0;
+
+
+var cen = document.createElement("center")
+cen.className = "center_for_error";
+var h = document.createElement("h2")
+h.innerHTML = "На жаль, зараз тестів немає."
+
+
 
 var menu = document.getElementById("body_on_tests");
 databaseRef.orderByKey().on('value', snapshot => {
@@ -10,12 +19,12 @@ databaseRef.orderByKey().on('value', snapshot => {
 
         value = childSnapshot.val();
         id_of_the_test = value.id;                  //id теста
-        klass_of_the_test = value.klass;            //номер класса
-        name_of_the_test = value.name_of_test;      //название теста
+        klass_of_the_test = value.c1ass;            //номер класса
+        name_of_the_test = value.title;      //название теста
         subject_of_the_test = value.subject;        //предмет теста
         time_of_the_test = value.time;              //время теста
         i += 1;
-
+        j += 1;
         var block = document.createElement("div");
         block.className = "main_block";
         var a = document.createElement("a");
@@ -43,17 +52,15 @@ databaseRef.orderByKey().on('value', snapshot => {
         div.appendChild(p_3);
         div.appendChild(p_4);
         menu.appendChild(block);
-
-
-
     });});
+
         if(i == 0) {
-            var cen = document.createElement("center")
-            cen.className = "center_for_error";
-            var h = document.createElement("h2")
-            h.innerHTML = "На жаль, зараз тестів немає."
-            
             console.log("1231");
             menu.appendChild(cen);
             cen.appendChild(h);
+        }
+
+        if(j == 0 ){
+            console.log("12")
+            cen.style.display = "none";
         }
