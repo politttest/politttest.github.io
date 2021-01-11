@@ -43,17 +43,17 @@ databaseRef.orderByKey().on('value', snapshot => {
         div.appendChild(p_3);
         div.appendChild(p_4);
         menu.appendChild(block);
-    });});
 
-    if (i == 0) {
-        var cen = document.createElement("center")
-        cen.className = "center_for_error";
-        var h = document.createElement("h2")
-        h.innerHTML = "На жаль, зараз тестів немає."
-        var h2 = document.createElement("h2")
-        h2.innerHTML = "Але Ви можете їх створити :)"
-        h2.className = "h2_for_error";
-        menu.appendChild(cen);
-        cen.appendChild(h);
-        cen.appendChild(h2);
-    }
+
+
+    });});
+        if(i == 0) {
+            var cen = document.createElement("center")
+            cen.className = "center_for_error";
+            var h = document.createElement("h2")
+            h.innerHTML = "На жаль, зараз тестів немає."
+            
+            console.log("1231");
+            menu.appendChild(cen);
+            cen.appendChild(h);
+        }
