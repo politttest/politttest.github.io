@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="SHORTCUT ICON" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png/450px-%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png" type="image/x-icon">
-    <title>Створення тесту</title>
-    <link rel="stylesheet" href="css/style_create_test.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оновленя тесту</title>
+    <link rel="stylesheet" href="css/style_update_test.css">
     <link rel="stylesheet" href="css/style_preloader.css">
+    <link rel="stylesheet" href="css/style_to_all.css">
 </head>
 <body>
     <div id="page-preloader" class="preloader">
@@ -15,15 +16,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-    <script src="js/Authentication.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
     <center>
-        <fieldset action="" class="pole_create_test">
+        <fieldset action="" class="pole_update_test">
             <legend>Назва тесту</legend>
-            <input style="outline: none;" type="text" id="name_of_the_test" class="enter_pole_create_test">
+            <input style="outline: none;" type="text" id="name_of_the_update_test" class="enter_pole_update_test">
         </fieldset>
-        <fieldset action="" class="pole_create_test" id="pole_create">
+        <fieldset action="" class="pole_update_test">
             <legend>Клас</legend>
             <select style="outline: none;" class="select" id="klass">
                 <option selected value="o1">8-й клас</option>
@@ -32,20 +31,25 @@
                 <option value="o4">11-й клас</option>
             </select>
         </fieldset>
-        <fieldset action="" class="pole_create_test">
+        <fieldset action="" class="pole_update_test">
             <legend>Предмет</legend>
-            <select style="outline: none;" class="select" id="subject">
-            </select>
+            <select style="outline: none;" class="select" id="subject"></select>
         </fieldset>
-        <fieldset action="" class="pole_create_test">
+        <fieldset action="" class="pole_update_test">
             <legend>Час проходження тесту (у хвилинах)</legend>
-            <input style="outline: none;" type="number" id="time" class="enter_pole_create_test">
+            <input style="outline: none;" type="number" id="time_of_the_update_test" class="enter_pole_update_test">
         </fieldset>
-        <button id="save_button" onclick="save_the_test();">Зберегти</button>
-        <button id="go_to_MainMenu" onclick="to_MainMenu();">Повернутися до головної сторінки</button>
+        <button id="questions" onclick="questions();">Питання</button>
+        <button id="testers" onclick="testers();">Тестери</button>
+        <button id="marks" onclick="marks();">Результати</button>
+        <button id="update" onclick="update();">Зберегти</button>
+        <button id="delete" onclick="delete_test();">Видалити</button>
     </center>
-<script src="js/save_test.js"></script>
-<script src="js/load_subjects.js"></script>   
-<script src="js/preloader.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/Authentication.js"></script>    
+    <script src="js/load_subjects.js"></script>
+    <script src="js/update_test.js"></script>
+
+
 </body>
 </html>

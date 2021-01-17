@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Створення питання</title>
+    <link rel="stylesheet" href="css/style_add_question.css">
+    <link rel="stylesheet" href="css/style_to_all.css">
+</head>
+<body>
+    <center id="body_for_answer">
+        <fieldset action="" class="pole_of_question">
+            <legend>Назва питання</legend>
+            <input type="text" id="name_of_the_question" class="enter_pole_question">
+        </fieldset>
+        <fieldset action="" class="pole_of_question">
+            <legend>Оцінка за питання</legend>
+            <input type="number" id="mark_of_the_question" class="enter_pole_question">
+        </fieldset>
+        <div class="block_of_answer">
+            <fieldset action="" class="pole_of_answer">
+                <legend>Відповідь 1</legend>
+                <input type="text" id="a1" class="answer_on_the_question">
+            </fieldset>
+            <button onclick="delete_answer();" class="button_to_delete_answer"><span>&#45;</span></button>
+        </div>
+        <div class="block_of_answer">
+            <fieldset action="" class="pole_of_answer">
+                <legend>Відповідь 2</legend>
+                <input type="text" id="a2" class="answer_on_the_question">
+            </fieldset>
+            <button onclick="delete_answer();" class="button_to_delete_answer"><span>&#45;</span></button>
+        </div>
+        <div class="block_of_answer">
+            <fieldset action="" class="pole_of_answer">
+                <legend>Відповідь 3</legend>
+                <input type="text" id="a3" class="answer_on_the_question">
+            </fieldset>
+            <button onclick="delete_answer();" class="button_to_delete_answer"><span>&#45;</span></button>
+        </div>
+    </center>
+
+    <center class="body_to_add">
+        <button onclick="add_answer();" class="button_to_add_answer"><span>&#43;</span></button>
+    </center>
+
+        <button class="save_the_question" onclick="save_the_question();">Зберегти питання</button>
+    <script src="js/add_question.js"></script>
+</body>
+</html>
