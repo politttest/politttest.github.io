@@ -1,0 +1,49 @@
+.pole_update_test{
+    border: 1px solid midnightblue;
+    border-radius: 14px;
+    width: 300px;
+    height: 35px;
+    margin: 10px;
+}  
+.enter_pole_update_test{
+    border: none;
+    width: 300px;
+} 
+.select{
+    position: relative;
+    height: 20px;
+    border: none;
+    width: 300px;
+    font-size: 14px;
+    font-weight: 600;
+}
+#questions, #testers, #marks{
+    margin: 10px;
+    display: block;
+    width: 250px;
+    height: 40px;
+    font-size: 17px;
+    background-color: #fff;
+    color: midnightblue;
+    border-radius: 14px;
+    border: 1px solid midnightblue;
+}
+#update{
+    display: block;
+    width: 250px;
+    height: 40px;
+    font-size: 17px;
+    color: white;
+    background-color: midnightblue;
+    border: none;
+    border-radius: 14px;
+    margin: 10px;
+}
+#delete{
+    display: block;
+    margin: 10px;
+    font-size: 14px;
+    background-color: #fff;
+    color: midnightblue;
+    border: none;
+}

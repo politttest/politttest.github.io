@@ -1,7 +1,7 @@
 *{
-    text-decoration: none;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 body{
     background-color: #e8e8e8;
@@ -20,14 +20,11 @@ body{
     display: block;
     width: 300px;   
     margin: auto;
-    padding: 15px;
-    
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .center_for_error{
     margin-top: 30px;
-}
-.h2_for_error{
-    margin-top: 50px;
 }
 .form_for_test{
     border: 1px solid lightblue;
@@ -41,36 +38,56 @@ body{
     box-shadow: 0px 0px 12px 6px #FFFFFF;
 }
 .name_of_test{
+    position: relative;
+    cursor: pointer;
+    display: block;
     margin: 10px;
     color: midnightblue;
     font-size: 20px;
     font-weight: 600;
 }
+.name_of_test::after{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    content: "";
+    transition: .2s;
+}
 .klass_of_test{
+    cursor: default;
     margin-left: 10px;
     color: black;
     font-size: 14px;
 }
 .subject_of_test{
+    cursor: default;
     margin-left: 10px;
     color: black;
     font-size: 16px;
     font-weight: 600;
 }
 .time_of_test{
+    cursor: default;
     color: rgb(0, 139, 185);
     font-size: 13px;
     margin: 10px;
 }
+.id_of_test{
+    font-size: 0%;
+}
 .sticky {
     display:flex ;
     position: fixed;
+    z-index: 100;
     background: #fff;
     padding: 10px;
     width: 100%;
     box-shadow: 1px 1px 5px grey,2px 1px 5px grey,1px 2px 5px grey,2px 2px 5px grey;
   }
 #button_on_back_to_MainMenu{
+    cursor: pointer;
     display: block;
     top: 2em;
     padding: 10px;
