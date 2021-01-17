@@ -1,7 +1,7 @@
 var photoURL_google,  displayName_google, email_google, element_google_photo;
 
   // Переменная для подключения к конкретной базе данных.
-  const firebaseConfig = {
+  var firebaseConfig = {
     apiKey: "AIzaSyAY5l-gAkhqDdabvglE7sUbvCKSjsXh5fU",
     authDomain: "politttest.firebaseapp.com",
     databaseURL: "https://politttest.firebaseio.com",

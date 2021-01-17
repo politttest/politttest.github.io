@@ -12,7 +12,7 @@ h.innerHTML = "На жаль, зараз тестів немає."
 
 
 
-var menu = document.getElementById("body_on_tests");
+var body_wihout_button_to_MainMenu = document.getElementById("body_on_tests");
 databaseRef.orderByKey().on('value', snapshot => {
     
     snapshot.forEach(function (childSnapshot) {
@@ -20,47 +20,75 @@ databaseRef.orderByKey().on('value', snapshot => {
         value = childSnapshot.val();
         id_of_the_test = value.id;                  //id теста
         klass_of_the_test = value.c1ass;            //номер класса
-        name_of_the_test = value.title;      //название теста
+        name_of_the_test = value.title;             //название теста
         subject_of_the_test = value.subject;        //предмет теста
         time_of_the_test = value.time;              //время теста
         i += 1;
         j += 1;
-        var block = document.createElement("div");
-        block.className = "main_block";
-        var a = document.createElement("a");
-        a.className = "block_form_for_test";
-        a.href = "MainMenu.html";
-        var div = document.createElement("div");
-        div.className = "form_for_test";
-        var p_1 = document.createElement("p");
-        p_1.className = "name_of_test";
-        p_1.innerHTML = name_of_the_test;
-        var p_2 = document.createElement("p");
-        p_2.className = "klass_of_test";
-        p_2.innerHTML = klass_of_the_test;
-        var p_3 = document.createElement("p");
-        p_3.className = "subject_of_test";
-        p_3.innerHTML = subject_of_the_test;
-        var p_4 = document.createElement("p");
-        p_4.className = "time_of_test";
-        p_4.innerHTML = "Час проходження тесту " + time_of_the_test + " хвилин";
-       
-        block.appendChild(a)
-        a.appendChild(div);
-        div.appendChild(p_1);
-        div.appendChild(p_2);
-        div.appendChild(p_3);
-        div.appendChild(p_4);
-        menu.appendChild(block);
+
+ 
+        var id_of_block_the_test;
+        id_of_block_the_test = "Test" + i;
+        var block_of_all_tests = document.createElement("div");
+        block_of_all_tests.className = "main_block";
+        var a_on_block_of_the_test = document.createElement("a");
+        a_on_block_of_the_test.className = "block_form_for_test";
+        a_on_block_of_the_test.onclick = ID();
+        var block_the_test = document.createElement("div");
+        block_the_test.className = "form_for_test";
+        var title = document.createElement("a");
+        title.className = "name_of_test";
+        title.innerHTML = name_of_the_test;
+        title.id = id_of_block_the_test;
+        var cl1ss = document.createElement("p");
+        cl1ss.className = "klass_of_test";
+        cl1ss.innerHTML = klass_of_the_test;
+        var subject = document.createElement("p");
+        subject.className = "subject_of_test";
+        subject.innerHTML = subject_of_the_test;
+        var time = document.createElement("p");
+        time.className = "time_of_test";
+        if (time_of_the_test == null) {
+            time.innerHTML = "Час проходження тесту не обмежений"
+        }
+        else {
+            time.innerHTML = "Час проходження тесту " + time_of_the_test + " хвилин";
+        }
+        var id = document.createElement("p");
+        id.className = "id_of_test";
+        id.innerHTML = id_of_the_test;
+
+        block_of_all_tests.appendChild(a_on_block_of_the_test)
+        a_on_block_of_the_test.appendChild(block_the_test);
+        block_the_test.appendChild(title);
+        block_the_test.appendChild(cl1ss);
+        block_the_test.appendChild(subject);
+        block_the_test.appendChild(time);
+        block_the_test.appendChild(id);
+        body_wihout_button_to_MainMenu.appendChild(block_of_all_tests);
+        
     });});
 
-        if(i == 0) {
-            console.log("1231");
-            menu.appendChild(cen);
-            cen.appendChild(h);
-        }
+function ID(){
+    document.querySelector('#body_on_tests').addEventListener('click', function(e){ // Вешаем обработчик клика на UL, не LI
+    //Получили ID, т.к. в e.target содержится элемент по которому кликнули
+    var way = document.getElementById(e.target.id)
+    var way_to_id = way.nextSibling.nextSibling.nextSibling.nextSibling.textContent;
+    console.log(way_to_id);
+    localStorage.id = way_to_id;
+    localStorage.name = way.textContent;
+    localStorage.cl1ss = way.nextSibling.textContent;
+    localStorage.subject = way.nextSibling.nextSibling.textContent;
+    localStorage.time = time_of_the_test;
+    document.location.href = "update_test.html";})
+}
 
-        if(j == 0 ){
-            console.log("12")
-            cen.style.display = "none";
-        }
+if(i == 0) {
+    console.log("1231");
+    body_wihout_button_to_MainMenu.appendChild(cen);
+    cen.appendChild(h);
+}
+if(j == 0 ){
+    console.log("12")
+    cen.style.display = "none";
+}
