@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="SHORTCUT ICON" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png/450px-%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png" type="image/x-icon">
     <title>Створення питання</title>
     <link rel="stylesheet" href="css/style_add_question.css">
     <link rel="stylesheet" href="css/style_to_all.css">
 </head>
 <body>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+	
     <center id="body_for_answer">
         <fieldset action="" class="pole_of_question">
             <legend>Назва питання</legend>
@@ -22,21 +29,32 @@
                 <legend>Відповідь 1</legend>
                 <input type="text" id="a1" class="answer_on_the_question">
             </fieldset>
-            <button onclick="delete_answer();" class="button_to_delete_answer"><span>&#45;</span></button>
+            <button onclick="delete_answer();" class="button_to_delete_answer" id="b1"><span>&#45;</span></button>
+            <input type="checkbox" id="ch1" class="input_to_change_answer">
         </div>
         <div class="block_of_answer">
             <fieldset action="" class="pole_of_answer">
                 <legend>Відповідь 2</legend>
                 <input type="text" id="a2" class="answer_on_the_question">
             </fieldset>
-            <button onclick="delete_answer();" class="button_to_delete_answer"><span>&#45;</span></button>
+            <button onclick="delete_answer();" class="button_to_delete_answer" id="b2"><span>&#45;</span></button>
+            <input type="checkbox" id="ch2" class="input_to_change_answer">
         </div>
         <div class="block_of_answer">
             <fieldset action="" class="pole_of_answer">
                 <legend>Відповідь 3</legend>
                 <input type="text" id="a3" class="answer_on_the_question">
             </fieldset>
-            <button onclick="delete_answer();" class="button_to_delete_answer"><span>&#45;</span></button>
+            <button onclick="delete_answer();" class="button_to_delete_answer" id="b3"><span>&#45;</span></button>
+            <input type="checkbox" id="ch3" class="input_to_change_answer">
+        </div>
+        <div class="block_of_answer">
+            <fieldset action="" class="pole_of_answer">
+                <legend>Відповідь 4</legend>
+                <input type="text" id="a4" class="answer_on_the_question">
+            </fieldset>
+            <button onclick="delete_answer();" class="button_to_delete_answer" id="b4"><span>&#45;</span></button>
+            <input type="checkbox" id="ch4" class="input_to_change_answer">
         </div>
     </center>
 
@@ -45,6 +63,8 @@
     </center>
 
         <button class="save_the_question" onclick="save_the_question();">Зберегти питання</button>
+    <script src="js/Authentication.js"></script>
     <script src="js/add_question.js"></script>
+    <script src="js/check_a1_a2_a3_..._a10.js"></script>
 </body>
 </html>
