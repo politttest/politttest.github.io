@@ -1,4 +1,4 @@
-const databaseRef = firebase.database().ref("/tests/");
+const databaseRef_tests = firebase.database().ref("/tests/");
 
 var value, id_of_the_test, klass_of_the_test, name_of_the_test, subject_of_the_test, time_of_the_test;
 var i = 0;
@@ -13,7 +13,7 @@ h.innerHTML = "На жаль, зараз тестів немає."
 
 
 var body_wihout_button_to_MainMenu = document.getElementById("body_on_tests");
-databaseRef.orderByKey().on('value', snapshot => {
+databaseRef_tests.orderByKey().on('value', snapshot => {
     
     snapshot.forEach(function (childSnapshot) {
 

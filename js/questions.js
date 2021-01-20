@@ -1,3 +1,14 @@
+const databaseRef_answers = firebase.database().ref("/answers/").child(localStorage.id);
+
+databaseRef_answers.orderByKey().on('value', snapshot => {
+    
+    snapshot.forEach(function (childSnapshot) {
+        value = childSnapshot.val()
+        console.log(value);
+    })})
+
+
+    
 /* Название теста к которому добавляем вопросы */
 var qst = localStorage.name;
 console.log(qst);
@@ -12,3 +23,5 @@ function to_tests(){
 function add(){
     document.location.href = "add_question.html";
 }
+
+
