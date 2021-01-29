@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style_list_with_class.css">
+    <link rel="stylesheet" href="css/style_to_all.css">
+</head>
+<body>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="js/initialization_to_politttest_own.js"></script>
+    <div class="top_nav">
+        <div class="nav"> 
+            <button class="img_for_questions" onclick="to_MainMenu();">&#11148;</button>
+            <div class="word_class">Всі наявні класи</div>
+            <button class="add_for_questions" onclick="add_the_class();">&#43;</button>
+        </div>
+    </div>
+    <div onclick="enter_to_class();" id="list_with_classes">
+    </div>
+    <script src="js/load_class.js"></script>
+</body>
+</html>
