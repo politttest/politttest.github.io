@@ -1,21 +1,4 @@
 var photoURL_google,  displayName_google, email_google, element_google_photo;
-
-  // Переменная для подключения к конкретной базе данных.
-  var firebaseConfig = {
-    apiKey: "AIzaSyAY5l-gAkhqDdabvglE7sUbvCKSjsXh5fU",
-    authDomain: "politttest.firebaseapp.com",
-    databaseURL: "https://politttest.firebaseio.com",
-    projectId: "politttest",
-    storageBucket: "politttest.appspot.com",
-    messagingSenderId: "284318167721",
-    appId: "1:284318167721:web:c82cbe8f464fc46d9f2fb8",
-    measurementId: "G-QPJVREDDSF"
-  };
-  // Используя вышеназванную переменную инициализирует базу данных.
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
-  // Создайте экземпляр объекта поставщика Google:
 var provider = new firebase.auth.GoogleAuthProvider();
 
 function Authentication(){  firebase.auth().signInWithPopup(provider).then((result) => {

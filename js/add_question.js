@@ -41,7 +41,7 @@ function delete_answer(){
 }
 
 function save_the_question(){
-    var quest, mark, multi = "false", count = 0;
+    var quest, mark, multi = false, count = 0, sel;
     quest = document.getElementById("name_of_the_question").value;
     mark = document.getElementById("mark_of_the_question").value;
 
@@ -52,17 +52,22 @@ function save_the_question(){
     if (mark == "") {
         window.alert("поле: 'Оцінка за питання' має бути заповненим!"); 
         return;
-    }   
+    } 
+    for (var k = 1; k <= i; k++){
+        var doc = document.getElementById("ch" + k).checked;
+        console.log(doc);
+        if(doc = true  ){
+            count += 1;
+        }
+    }
+    if (count >1) {
+        multi = true;
+    }
+    console.log(multi);
     var answers1 = [];
     var answers2 = [];
 
     for (var j = 1; j <= i; j++) {
-        var sel = "false"
-        var doc = document.getElementById("ch" + j).checked;
-        if(doc){
-            sel = "true";
-            count += 1;
-        }
         var che = document.getElementById("a" + j).value;
               answers1.push({
                     id: j,
@@ -74,6 +79,7 @@ function save_the_question(){
                     text: che
         })
     }
+
 
     var newPostKey = firebase.database().ref().child('/answers/').child(localStorage.id).push().key;
 
