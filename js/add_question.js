@@ -43,7 +43,8 @@ function delete_answer(){
 function save_the_question(){
     var quest, mark, multi = false, count = 0, sel;
     quest = document.getElementById("name_of_the_question").value;
-    mark = document.getElementById("mark_of_the_question").value;
+    mark_v = document.getElementById("mark_of_the_question").value;
+    mark = Number(mark_v);
 
     if (quest == "") {
         window.alert("поле: 'Назва питання' має бути заповненим!"); 
@@ -52,7 +53,7 @@ function save_the_question(){
     if (mark == "") {
         window.alert("поле: 'Оцінка за питання' має бути заповненим!"); 
         return;
-    } 
+    }
     for (var k = 1; k <= i; k++){
         var doc = document.getElementById("ch" + k).checked;
         console.log(doc);
@@ -66,9 +67,17 @@ function save_the_question(){
     console.log(multi);
     var answers1 = [];
     var answers2 = [];
-
+    sel = false;
     for (var j = 1; j <= i; j++) {
         var che = document.getElementById("a" + j).value;
+        var doc2 = document.getElementById("ch" + j).checked;
+        if(doc2 == true){
+            sel = true;
+        }
+        else{
+            sel = false;
+        }
+        console.log(j);
               answers1.push({
                     id: j,
                     text: che,
