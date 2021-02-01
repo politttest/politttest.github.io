@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="SHORTCUT ICON" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png/450px-%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png" type="image/x-icon">
-    <title>Список з класами</title>
-    <link rel="stylesheet" href="css/style_list_with_class.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інформація про клас</title>
     <link rel="stylesheet" href="css/style_to_all.css">
+    <link rel="stylesheet" href="css/style_info_of_the_class.css">
+    
 </head>
 <body>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
@@ -14,15 +14,17 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
     <script src="js/initialization_to_politttest_own.js"></script>
-    <div class="top_nav">
-        <div class="nav"> 
-            <button class="img_for_questions" onclick="to_MainMenu();">&#11148;</button>
-            <div class="word_class">Всі наявні класи</div>
-            <button class="add_for_questions" onclick="add_the_class();">&#43;</button>
+    <center>
+        <div id="list_with_children">
+            <div class="block_of_children" id="block1">
+                <p class="name_of_children">Влад Федірко</p>
+                <p class="email_of_children">vladfedirko11@gmail.com</p>
+                <p class="id_of_children"></p>
+                <button class="button_on_the_children delete_the_child" onclick="delete_the_children_from_DB();"><span>&#45;</span></button>
+                <button class="button_on_the_children add_the_child"><span>&#10003;</span></button>
+            </div>
         </div>
-    </div>
-    <div onclick="enter_to_class();" id="list_with_classes">
-    </div>
-    <script src="js/load_class.js"></script>
+    </center>
+    <script src="js/load_children.js"></script>
 </body>
 </html>

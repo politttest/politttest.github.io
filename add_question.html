@@ -25,7 +25,7 @@
             <legend>Оцінка за питання</legend>
             <input type="number" id="mark_of_the_question" class="enter_pole_question">
         </fieldset>
-        <div class="block_of_answer">
+        <div class="block_of_answer" id="block1">
             <fieldset action="" class="pole_of_answer">
                 <legend>Відповідь 1</legend>
                 <input type="text" id="a1" class="answer_on_the_question">
@@ -33,7 +33,7 @@
             <button onclick="delete_answer();" class="button_to_delete_answer" id="b1"><span>&#45;</span></button>
             <input type="checkbox" id="ch1" class="input_to_change_answer">
         </div>
-        <div class="block_of_answer">
+        <div class="block_of_answer" id="block2"> 
             <fieldset action="" class="pole_of_answer">
                 <legend>Відповідь 2</legend>
                 <input type="text" id="a2" class="answer_on_the_question">
@@ -41,7 +41,7 @@
             <button onclick="delete_answer();" class="button_to_delete_answer" id="b2"><span>&#45;</span></button>
             <input type="checkbox" id="ch2" class="input_to_change_answer">
         </div>
-        <div class="block_of_answer">
+        <div class="block_of_answer" id="block3">
             <fieldset action="" class="pole_of_answer">
                 <legend>Відповідь 3</legend>
                 <input type="text" id="a3" class="answer_on_the_question">
@@ -49,7 +49,7 @@
             <button onclick="delete_answer();" class="button_to_delete_answer" id="b3"><span>&#45;</span></button>
             <input type="checkbox" id="ch3" class="input_to_change_answer">
         </div>
-        <div class="block_of_answer">
+        <div class="block_of_answer" id="block4">
             <fieldset action="" class="pole_of_answer">
                 <legend>Відповідь 4</legend>
                 <input type="text" id="a4" class="answer_on_the_question">
@@ -63,7 +63,12 @@
         <button onclick="add_answer();" class="button_to_add_answer"><span>&#43;</span></button>
     </center>
 
-        <button class="save_the_question" onclick="save_the_question();">Зберегти питання</button>
+    <center>
+        <button class="button" onclick="save_the_question();">Зберегти питання</button>
+        <button class="button" onclick="back_to_test();">Повернутися назад</button>
+        <button class="button" onclick="clear_to_form();">Очистити форму</button>
+    </center>
+        
     
     <script src="js/add_question.js"></script>
     <script src="js/check_a1_a2_a3_..._a10.js"></script>
