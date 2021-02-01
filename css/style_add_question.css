@@ -73,13 +73,14 @@
     align-items: center;
     width: 30px;
     height: 30px;  
+    margin-bottom: 20px;
 }
 .button_to_add_answer span{
     position: absolute;
 }
 
 
-.save_the_question{
+.button{
     height: 45px;
     width: 200px;
     font-size: 18px;
@@ -90,5 +91,5 @@
     z-index: 100;
     display: block;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 10px;
 }
