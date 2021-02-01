@@ -9,6 +9,7 @@ function add_answer(){
     i+=1;
     var blck = document.createElement("div");
     blck.className = "block_of_answer";
+    blck.id = "block" + i;
     var fld = document.createElement("fieldset");
     fld.className = "pole_of_answer";
     var lgnd = document.createElement("legend");
@@ -19,6 +20,7 @@ function add_answer(){
     npt.className = "answer_on_the_question";
     var bttn = document.createElement("button");
     bttn.className = "button_to_delete_answer";
+    bttn.id = "b" + i
     bttn.onclick = "delete_answer();";
     var spn = document.createElement("span");
     spn.innerHTML = "&#45;";
@@ -34,10 +36,44 @@ function add_answer(){
     fld.appendChild(lgnd);
     fld.appendChild(npt);
     bttn.appendChild(spn);
+
+    test_add_answer();
 }
 
 function delete_answer(){
 
+}
+
+function back_to_test() {
+    document.location.href = "questions.html";
+}
+
+function clear_to_form() {
+    document.getElementById("name_of_the_question").value = "";
+    document.getElementById("mark_of_the_question").value = "";
+    for (var j = 1; j <= i; j++) {
+        document.getElementById("ch" + j).checked = false;
+        document.getElementById("a" + j).value = "";
+    }
+    if(i>4){
+        bd_fr_nswr.removeChild(block5);
+    }
+    if(i>5){
+        bd_fr_nswr.removeChild(block6);
+    }
+    if(i>6){
+        bd_fr_nswr.removeChild(block7);
+    }
+    if(i>7){
+        bd_fr_nswr.removeChild(block8);
+    }
+    if(i>8){
+        bd_fr_nswr.removeChild(block9);
+    }
+    if(i>9){
+        bd_fr_nswr.removeChild(block10);
+    }
+    i = 4;
 }
 
 function save_the_question(){

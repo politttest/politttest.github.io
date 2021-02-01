@@ -11,6 +11,7 @@ databaseRef.orderByKey().on('value', snapshot => {
         var name_of_the_class = document.createElement("p");
         name_of_the_class.className = "name_of_the_class";
         name_of_the_class.innerHTML = value.title;
+        name_of_the_class.id = "name" + auto_k;
         var count_people_of_the_class = document.createElement("p");
         count_people_of_the_class.className = "count_people_of_the_class";
         if (value.users) {
@@ -35,8 +36,6 @@ databaseRef.orderByKey().on('value', snapshot => {
         auto_k +=1;
 })})
 
-
-
 function to_MainMenu(){
     document.location.href = "MainMenu.html"
 }
@@ -45,11 +44,8 @@ function enter_to_class(){
     document.querySelector('#list_with_classes').addEventListener('click', function(e){ // Вешаем обработчик клика на UL, не LI
     //Получили ID, т.к. в e.target содержится элемент по которому кликнули
     var way = document.getElementById(e.target.id)
-    console.log(way);
-    /*console.log("firstChild: " + way);
-    console.log("firstChild.nextSibling: " + way.firstChild.nextSibling);
-    var way_to_id_to_class = way.firstChild.nextSibling.nextSibling.nextSibling.textContent;
+    var way_to_id_to_class = way.nextSibling.nextSibling.nextSibling.textContent;
     console.log(way_to_id_to_class);
     localStorage.id_of_class = way_to_id_to_class;
-    document.location.href = "update_test.html";})*/
+    document.location.href = "info_of_the_class.html";
 })}
