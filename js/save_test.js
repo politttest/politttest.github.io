@@ -5,7 +5,8 @@ var klss, klss_text, sbjct, sbjct_text, tm_text, nm_text;
               klss_text = klss.options[klss.selectedIndex].text; //информация с поля "класс"
               sbjct = document.getElementById("subject");
               sbjct_text = sbjct.options[sbjct.selectedIndex].text; //информация с поля "предмет"
-              tm_text = time.value; //информация с поля "время"
+              tm_text_v = time.value; //информация с поля "время"
+              tm_text = Number(tm_text_v);
               nm_text = document.getElementById("name_of_the_test").value; //информация с поля "название теста"
               
               //console.log(klss_text)
