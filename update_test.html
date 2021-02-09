@@ -16,16 +16,16 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
-     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>    
-     <script src="js/initialization_to_politttest_own.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>    
+    <script src="js/initialization_to_politttest_own.js"></script>    
     <center>
         <fieldset action="" class="pole_update_test">
             <legend>Назва тесту</legend>
-            <input style="outline: none;" type="text" id="name_of_the_update_test" class="enter_pole_update_test">
+            <input type="text" id="name_of_the_update_test" class="enter_pole_update_test">
         </fieldset>
         <fieldset action="" class="pole_update_test">
             <legend>Клас</legend>
-            <select style="outline: none;" class="select" id="klass">
+            <select class="select" id="klass">
                 <option selected value="o1">8-й клас</option>
                 <option value="o2">9-й клас</option>
                 <option value="o3">10-й клас</option>
@@ -34,17 +34,19 @@
         </fieldset>
         <fieldset action="" class="pole_update_test">
             <legend>Предмет</legend>
-            <select style="outline: none;" class="select" id="subject"></select>
+            <select class="select" id="subject"></select>
         </fieldset>
         <fieldset action="" class="pole_update_test">
             <legend>Час проходження тесту (у хвилинах)</legend>
-            <input style="outline: none;" type="number" id="time_of_the_update_test" class="enter_pole_update_test">
+            <input type="number" id="time_of_the_update_test" class="enter_pole_update_test">
         </fieldset>
         <button id="questions" onclick="questions();">Питання</button>
         <button id="testers" onclick="testers();">Тестери</button>
-        <button id="marks" onclick="marks();">Результати</button>
+        <button id="marks" onclick="marks();">Оцінки учнів</button>
+        <button id="results" onclick="to_results();">Відповіді учнів</button>
         <button id="update" onclick="update();">Зберегти</button>
         <button id="delete" onclick="delete_test();">Видалити</button>
+        
     </center>
     <script src="js/preloader.js"></script>
     <script src="js/load_subjects.js"></script>
