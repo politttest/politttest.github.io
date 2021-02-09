@@ -45,7 +45,7 @@ function enter_to_class(){
     //Получили ID, т.к. в e.target содержится элемент по которому кликнули
     var way = document.getElementById(e.target.id)
     var way_to_id_to_class = way.nextSibling.nextSibling.nextSibling.textContent;
-    console.log(way_to_id_to_class);
+    //console.log(way_to_id_to_class);
     localStorage.id_of_class = way_to_id_to_class;
     document.location.href = "info_of_the_class.html";
 })}

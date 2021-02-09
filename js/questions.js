@@ -5,6 +5,7 @@ databaseRef_answers.orderByKey().on('value', snapshot => {
     snapshot.forEach(function (childSnapshot) {
         value = childSnapshot.val()
         console.log(value);
+        console.log(value.text);
         var block_of_all_quest = document.getElementById("block_of_all_questions");
         var block_of_one_quest = document.createElement("div");
         block_of_one_quest.className = "quest";
