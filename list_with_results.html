@@ -6,8 +6,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style_MainMenu.css">
     <title>Відповіді учнів</title>
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+    </style>
   </head>
-  <body style="height: 2000px;">
+  <body style="">
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
@@ -15,23 +20,25 @@
     <script src="js/initialization_to_politttest_own.js"></script>
     <div class="sticky-top bg-white text-center" style="box-shadow: 0 0 1px black, 0 2px 10px black;">
         <p class="fs-4 text-primary">Відповіді учнів</p>
-        <div class="row">
-          <div class="offset-lg-4 col-lg-1">
+        <!-- <div class="row">
+          <div class="offset-lg-4 col-lg-1"> -->
+            <div class="d-flex justify-content-evenly">
             <button class="btn btn-outline-primary btn-light mb-3" onclick="to_test();">Повернення</button>
-          </div>
-          <div class="col-lg-1">
+          <!-- </div>
+          <div class="col-lg-1"> -->
             <div class="dropdown">
               <button class="btn btn-secondary btn-outline-primary btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 Оберіть учня
               </button>
-              <ul id="list_with_name_students" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <ul id="list_with_name_students" class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="overflow-y: auto; height: 200px;">
               </ul>
             </div>
+          <!-- </div>
+          <div class="col-lg-1"> -->
+            <a href="list_with_results.html" type="button" class="btn btn-outline-primary btn-light mb-3">Оновити</a>
           </div>
-          <div class="col-lg-1">
-            <a href="list_with_results.html" type="button" class="btn btn-outline-primary btn-light">Оновити</a>
-          </div>
-        </div>
+          <!--</div>
+        </div> -->
 
     </div>
     <div class="container mt-5">
