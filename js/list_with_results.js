@@ -1,16 +1,27 @@
+function to_test() {
+    document.location.href = "update_test.html";
+}
+
+
 const databaseRef_to_answers = firebase.database().ref("/answers/").child(localStorage.id);
 const databaseRef_to_results = firebase.database().ref("/results/").child(localStorage.id);
 const databaseRef_to_users = firebase.database().ref("/users/");
-var value, id_item_accordion = 1, time_arr_with_answers = [];
+var value, id_item_accordion = 1, time_arr_with_answers = [], arr_with_all_questions = [], arr_with_questions_one_test = [];
 
 var list_with_results = document.getElementById("accordionFlushExample");
+var list_with_name_students = document.getElementById("list_with_name_students")
 
-/*function create_accordion(){*/
+databaseRef_to_results.orderByKey().on('value', snapshot => {
+    snapshot.forEach(function (childSnapshot) {
+        value_results = childSnapshot.val();
+        arr_with_all_questions.push(value_results);
+})})
 
     databaseRef_to_answers.orderByKey().on('value', snapshot => {
     snapshot.forEach(function (childSnapshot) {
         value = childSnapshot.val();
         arr_with_answers = value.answers;
+        arr_with_questions_one_test.push(value)
         //console.log(value);
 
         var accordionItem = document.createElement("div");
@@ -19,17 +30,17 @@ var list_with_results = document.getElementById("accordionFlushExample");
         accordionHeader.className = "accordion-header";
         accordionHeader.id = "flush-heading" + id_item_accordion;
         var accordionButton = document.createElement("button");
-        accordionButton.className = "accordion-button collapsed";
+        accordionButton.className = "accordion-button collapsed text-left";
         var accordionButtonContainer = document.createElement("div")
         accordionButtonContainer.className = "container"
         var accordionButtonQuestion = document.createElement("div")
         accordionButtonQuestion.className = "row"
-        accordionButtonQuestion.innerHTML = value.text;
+        accordionButtonQuestion.innerHTML = "<p class='fw-bold'>" + value.text + " <span class='fw-light'>(" + value.mark + "б.)<span> </p>";
         var accordionButtonAnswers = document.createElement("div")
         accordionButtonAnswers.className = "row m-2"
         accordionButtonAnswers.style.textAlign = "left";
         for(var g = 0; g < arr_with_answers.length; g++){
-            time_arr_with_answers.push(arr_with_answers[g].text + "<br>")
+            time_arr_with_answers.push("<p class='p-0 m-0'><span class='fw-bold'>Відповідь: </span>" +  arr_with_answers[g].text + "</p>")
         }
         accordionButtonAnswers.innerHTML = time_arr_with_answers;
         accordionButton.setAttribute("type", "button");
@@ -54,7 +65,6 @@ var list_with_results = document.getElementById("accordionFlushExample");
         RowLg3.id = "RowLg3_" + id_item_accordion;
         var RowLg3DisplayName = document.createElement("p");
         RowLg3DisplayName.id = "DisplayName" + id_item_accordion;
-        RowLg3DisplayName.innerHTML = "test"
         var RowLg9 = document.createElement("div");
         RowLg9.className = "col-lg-10 col-md-9";
         RowLg9.id = "RowLg9_" + id_item_accordion;
@@ -72,25 +82,22 @@ var list_with_results = document.getElementById("accordionFlushExample");
         accordionRow.appendChild(RowLg3);   
         RowLg3.appendChild(RowLg3DisplayName);
         accordionRow.appendChild(RowLg9);
-    
-        /*console.log(arr_with_answers)
-        console.log(arr_with_answers.length)*/
-
 
         id_item_accordion++;
         time_arr_with_answers = [];
     })})
-//}
-
-var 
-    count_user = 0,
+var count_user = 0,
     i = 0, 
+    q = 1,
     id_item,
     search = false,
     arr_user_name_with_results = [],
     arr_user_id_with_results = [],
+    arr_user_result_with_results = [],
+    arr_with_true_answers = [], 
     arr_displayName = [],
     arr_id = [],
+    arr = [],
     count_user_in_results = 0,
     list_with_name_students = document.getElementById("list_with_name_students");
 
@@ -100,20 +107,20 @@ databaseRef_to_users.orderByKey().on('value', snapshot => {
         value = childSnapshot.val();
         arr_id.push(value.id);
         arr_displayName.push(value.displayName);
-        //console.log(arr_displayName)
         count_user++;
 })}) 
+setTimeout(() => {
+    for(var e = 0; e < arr_with_all_questions.length; e ++){
+        test_userID = arr_with_all_questions[e].userId; 
+        test_results = arr_with_all_questions[e].questions;
+        //console.log(test_results);
 
-databaseRef_to_results.orderByKey().on('value', snapshot => {
-    snapshot.forEach(function (childSnapshot) {
-        value_results = childSnapshot.val();
-        //console.log(value_results);
-        test_userID = value_results.userId; 
         /*console.log(test_userID)
         console.log(arr_id)
         console.log(arr_displayName)*/
         search = false;
         id_item = 1;
+
         while(search != true){
             if (test_userID == arr_id[i]){
                 localStorage.name_of_tester = arr_displayName[i];
@@ -127,54 +134,121 @@ databaseRef_to_results.orderByKey().on('value', snapshot => {
                 i++;  
             }
         }
+
+        for(var p = 0; p < test_results.length; p++){
+            time_result = test_results[p].answers;
+            //console.log(time_result);
+            for(var pp = 0; pp < time_result.length; pp++){
+                if(time_result[pp].selected){
+                    arr_with_true_answers.push(time_result[pp].id)
+                }
+            }
+            
+        }
+        //console.log(arr_with_true_answers)
+        arr.push(arr_with_true_answers)
+        arr_with_true_answers = [];
+
         arr_user_name_with_results.push(localStorage.name_of_tester);
         arr_user_id_with_results.push(localStorage.id_of_tester);
         count_user_in_results++;
-})})
+        q++;
+    }
+}, 1600);
+        
+
+
+for(var k = 0; k < count_user_in_results; k++){
+    var dropdownP = document.createElement("p")
+    dropdownP.className = "m-0"
+    var dropdownItem = document.createElement("a");
+    dropdownItem.id = "onem od"+k;
+    dropdownItem.className = "dropdown-item pt-0 pb-0";
+    dropdownItem.type = "button";
+    dropdownItem.setAttribute("onclick", "load_answers_in_the_list();");
+    /*dropdownItem.innerHTML = arr_user_name_with_results[k]*/
+    var id_of_tester_with_results = document.createElement("span");
+    id_of_tester_with_results.className = "f-left"
+    id_of_tester_with_results.style.fontSize = "0px";
+    id_of_tester_with_results.style.float = "left"
+    /*id_of_tester_with_results.innerHTML = arr_user_id_with_results[k];*/
+    /*list_with_name_students.appendChild(li)
+    li.appendChild(dropdownP)*/
+    list_with_name_students.appendChild(dropdownP);
+    dropdownP.appendChild(dropdownItem)
+    dropdownP.appendChild(id_of_tester_with_results)
+    var answers_of_tester_with_results = document.createElement("span")
+    answers_of_tester_with_results.className = "f-left"
+    answers_of_tester_with_results.style.fontSize = "0px";
+    answers_of_tester_with_results.style.float = "left"
+    answers_of_tester_with_results.id = "results_" + k;
+}
 
 setTimeout(() => {
     for(var k = 0; k < count_user_in_results; k++){
-        var li = document.createElement("li");
-        li.id = "li"+k;
+        //var li = document.createElement("li");
+        //li.id = "li"+k;
         var dropdownP = document.createElement("p")
-        dropdownP.id = "p" + k;
+        //dropdownP.id = "p" + k;
         dropdownP.className = "m-0"
         var dropdownItem = document.createElement("a");
-        dropdownItem.id = "a"+k;
+        dropdownItem.id = "onem od"+k;
         //console.log(dropdownItem)
         dropdownItem.className = "dropdown-item pt-0 pb-0";
         dropdownItem.type = "button";
         dropdownItem.setAttribute("onclick", "load_answers_in_the_list();");
         dropdownItem.innerHTML = arr_user_name_with_results[k]
         var id_of_tester_with_results = document.createElement("span");
+        id_of_tester_with_results.className = "f-left"
         id_of_tester_with_results.style.fontSize = "0px";
+        id_of_tester_with_results.style.float = "left"
         id_of_tester_with_results.innerHTML = arr_user_id_with_results[k];
-        list_with_name_students.appendChild(li)
-        li.appendChild(dropdownP)
+        var answers_of_tester_with_results = document.createElement("span")
+        answers_of_tester_with_results.className = "f-left"
+        answers_of_tester_with_results.style.fontSize = "0px";
+        answers_of_tester_with_results.style.float = "left"
+        answers_of_tester_with_results.id = "results_" + k;
+        answers_of_tester_with_results.innerHTML = arr[k];
+        list_with_name_students.appendChild(dropdownP);
         dropdownP.appendChild(dropdownItem)
         dropdownP.appendChild(id_of_tester_with_results)
+        dropdownP.appendChild(answers_of_tester_with_results);
     }
-}, 4000);
+}, 3000);
+
+function splitString(stringToSplit, separator) {
+    var arrayOfTrueAnswers = stringToSplit.split(separator);
+    /*console.log('Оригинальная строка: "' + stringToSplit + '"');
+    console.log('Разделитель: "' + separator + '"');
+    console.log('Массив содержит ' + arrayOfTrueAnswers.length + ' элементов: ' + arrayOfTrueAnswers.join(' / '));
+    console.log(arrayOfTrueAnswers)*/
+}
+
 
 function load_answers_in_the_list(){
     document.querySelector('#list_with_name_students').addEventListener('click', function(e){ // Вешаем обработчик клика на UL, не LI
         //Получили ID, т.к. в e.target содержится элемент по которому кликнули
-        var way = document.getElementById(e.target.id)
-        setTimeout(() => {
-            console.log("way: "+ way)
-        }, 100);
-        
-        localStorage.name_of_one_user = way.value;
-        localStorage.id_of_one_user - way.nextSibling.value;
-    //create_accordion();
-    for (var o = 1; o < id_item_accordion; o++) {
-        var time_one_accordion = document.getElementById("DisplayName" + o);
-        console.log("o: " + o)
-        console.log(time_one_accordion);
-        console.log("localStorage.name_of_one_user: " + localStorage.name_of_one_user)
-        console.log("way.value: " + way.value)
-        
-        time_one_accordion.innerHTML = localStorage.name_of_one_user;
-    }})
-    
+        var way = document.getElementById(e.target.id);
+        localStorage.name_of_one_user = way.textContent;
+        localStorage.id_of_one_user = way.nextSibling.textContent;
+        localStorage.answers_of_one_user = way.nextSibling.nextSibling.textContent;
+        console.log(localStorage.name_of_one_user)
+        console.log(localStorage.id_of_one_user)
+        console.log(localStorage.answers_of_one_user)
+        for (var o = 1; o < id_item_accordion; o++) {
+            var time_one_accordion = document.getElementById("DisplayName" + o);
+            time_one_accordion.innerHTML = localStorage.name_of_one_user;
+        }
+        var arrayOfTrueAnswers = localStorage.answers_of_one_user.split(",");
+        console.log(arr_with_questions_one_test)
+        for (var m = 0; m < arr_with_questions_one_test.length; m++){
+            y = arrayOfTrueAnswers[m] - 1;
+            final_answer = arr_with_questions_one_test[m].answers[y]
+            console.log(final_answer)
+            console.log(final_answer.text)
+            mm = m + 1;
+            document.getElementById("RowLg9_" + mm).innerHTML = final_answer.text;
+        }
+    })
+
 }
