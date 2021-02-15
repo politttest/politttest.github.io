@@ -1,0 +1,23 @@
+hr{
+    margin-top: 6px;
+}
+h3{
+    margin: 0px;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+}
+.modal-dialog{
+    width: 400px;
+}
+#child__auth, #child__main_menu, #child__list_with_test, #child__writing_test{
+    min-height: 600px;
+    max-height: 600px;
+}
+.none{
+    display: none;
+}
+.block{
+    display: block;
+}
