@@ -7,8 +7,9 @@
 	<meta name="google-signin-client_id" content="529560107564-k8c2q5abqq98s1c8tob2i3vviidl5p1m.apps.googleusercontent.com">
 	
 	<link rel="SHORTCUT ICON" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png/450px-%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png" type="image/x-icon">
-	<link rel="stylesheet" href="css/style_index.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 	<link rel="stylesheet" href="icofont/icofont.css">
+	<link rel="stylesheet" href="css/style_modal.css">
 	<title>Politest</title>	
 </head>
 <body>
@@ -16,63 +17,99 @@
  	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
  	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
  	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
-	 <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-	 <script src="js/initialization_to_politttest_own.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+	<script src="js/initialization_to_politttest_own.js"></script>
 	<script src="js/Authentication.js"></script>
-	<div class="full">
-		<div class="header">
-				<img src="css/img/gerb.png" alt="" class="gerb">
-				<p class="politest">Politest</p>
 
-				<div class="menu-main">
-					<button class="button_auth" onclick="Authentication();"> <span style="font-size: 20px;"> Авторизація </button>
-  					<!--<div><a href="index.html">Учень</a></div>
-  					<div><a href="index.html">Вчитель</a></div> -->
+	<div class="header" style="height: 100vh; background-image: url(css/img/fon1.jpg); background-size: cover;">
+		<div class="container pt-3">
+			<nav class="navbar navbar-light" style="justify-content: space-between;">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">
+						<img src="css/img/gerb.png" width="50" height="50" class="d-inline-block align-top gerb">
+						<span class="politest text-white display-6" >Politest</span>
+					</a>
+					<div class="buttons">
+						<button class="btn btn-outline-primary text-light" onclick="Authentication();"> <span style="font-size: 18px;"> Авторизація </button>
+						<button class="btn btn-outline-primary text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" onclick="PopUp();"> <span style="font-size: 18px;"> Демо версія </button>
+						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+									  	<h5 class="modal-title" id="staticBackdropLabel">Демо версія</h5>
+									  	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body p-0">
+										<div class="modal-body__header_container">
+											<center id="choice" class="block">
+												<h5 class="p-3">Оберіть роль</h5>
+												<button class="btn btn-primary text-light mb-4" onclick="child();">Учень</button>
+												<button class="btn btn-primary text-light mb-4" onclick="teacher();">Вчитель</button>
+											</center>
+											<center id="child__auth" class="none">
+												<h3 class="">Politest</h2>
+												<hr>
+													<center class="main_menu__auth" style="height: 545px">
+														<p><img src="css/img/gerb.png" width="50px" height="50px" ></p>
+														<button class="btn btn-outline-primary mb-4" onclick="child__connect();">Войти через аккаунт Google</button>
+													</center>
+											</center>
+											<center id="child__main_menu" class="none">
+												<h3 class="">Politest</h2>
+												<hr>
+												<center class="main_menu__auth" style="height: 545px">
+													<p><img src="css/img/gerb.png" width="50px" height="50px" ></p>
+													<p>Конкурс МАН</p>
+													<p>CompetitionMan@gmail.com</p>
+													<p><button class="btn btn-primary mb-4" onclick="child__to_write_test()">Тести</button></p>
+													<p><button class="btn btn-text-primary mb-4" onclick="child__go_out()">Виход</button></p>
+												</center>
+											</center>
+										</div>
+									</div>
+									<div class="modal-footer">
+									  	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
   				</div>
-
-				<div href="" class="way_to_polit">
-					<a href="https://www.facebook.com/pages/category/Education-Website/%D0%9B%D1%96%D1%86%D0%B5%D0%B9-%D0%9F%D0%BE%D0%BB%D1%96%D1%82-2277359869005155/" style="color: white;" class="icofont-facebook"></a>
+			</nav>
+			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="padding: 72px 128px;">
+				<div class="carousel-indicators" style="padding: 72px 128px;">
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 				</div>
-
-				<div href="" class="way_to_polit" >
-					<a href="https://www.instagram.com/polit_kremen2020" style="color: white;" class="icofont-instagram"></a>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="css/img/2.png" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="css/img/3.png" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="css/img/4.png" class="d-block w-100" alt="...">
+			        </div>
 				</div>
-
-			<!-- <div class="to_subject">
-				<a href="#menu" style=" transition-duration: 500ms;">
-					<p class="way_to_subject">&#5167;</p>
-				</a>
-			</div> -->
-		</div>
-		<!-- <ul class="menu" id="menu">
-			<li class="menu_subject">
-				<a data-name="История" id="history" class="way_to_menu" onclick="Authentication();"></a>
-			</li>
-			<li class="menu_subject">
-				<a data-name="Программирование" href="" id="programm" class="way_to_menu even">Программирование</a>
-			</li>
-			<li class="menu_subject">
-				<a data-name="Информатика" href="" id="inform" class="way_to_menu">Информатика</a>
-			</li>
-			<li class="menu_subject">
-				<a data-name="Физика" href="" id="physic" class="way_to_menu even">Физика</a>
-			</li>
-			<li class="menu_subject">
-				<a data-name="Химия" href="" id="chemist" class="way_to_menu">Химия</a>
-			</li>
-			<li class="menu_subject">
-				<a data-name="Биология" href="" id="biology" class="way_to_menu even">Биология</a>
-			</li>
-		</ul>
-		<div class="footer">
-			<div class="to_header">
-				<a href="#">
-					<p class="way_to_header">&#5169;</p>
-				</a>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden"></span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden"></span>
+				</button>
 			</div>
+			<div class="footer">
 
-			<div class="g-signin2" data-onsuccess="onSignIn"></div>
-		</div> -->
+			</div>
+		</div>
 	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+	<script src="js/demo.js"></script>
 </body>
 </html>
