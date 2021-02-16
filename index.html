@@ -37,11 +37,11 @@
 								<div class="modal-content">
 									<div class="modal-header">
 									  	<h5 class="modal-title" id="staticBackdropLabel">Демо версія</h5>
-									  	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									  	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="Restart();"></button>
 									</div>
 									<div class="modal-body p-0">
 										<div class="modal-body__header_container">
-											<center id="choice" class="block">
+											<center id="choice" class="none">
 												<h5 class="p-3">Оберіть роль</h5>
 												<button class="btn btn-primary text-light mb-4" onclick="child();">Учень</button>
 												<button class="btn btn-primary text-light mb-4" onclick="teacher();">Вчитель</button>
@@ -49,25 +49,183 @@
 											<center id="child__auth" class="none">
 												<h3 class="">Politest</h2>
 												<hr>
-													<center class="main_menu__auth" style="height: 545px">
-														<p><img src="css/img/gerb.png" width="50px" height="50px" ></p>
-														<button class="btn btn-outline-primary mb-4" onclick="child__connect();">Войти через аккаунт Google</button>
-													</center>
+												<center class="main_menu__auth" style="height: 545px">
+													<div class="own_container">
+														<p><img src="css/img/gerb.png" width="70px" height="70px" ></p>
+														<button class="btn btn-outline-primary own_btn" onclick="child__connect();">Войти через аккаунт Google</button>
+													</div>
+												</center>
 											</center>
 											<center id="child__main_menu" class="none">
-												<h3 class="">Politest</h2>
+												<h3>Politest</h2>
 												<hr>
-												<center class="main_menu__auth" style="height: 545px">
-													<p><img src="css/img/gerb.png" width="50px" height="50px" ></p>
-													<p>Конкурс МАН</p>
-													<p>CompetitionMan@gmail.com</p>
-													<p><button class="btn btn-primary mb-4" onclick="child__to_write_test()">Тести</button></p>
-													<p><button class="btn btn-text-primary mb-4" onclick="child__go_out()">Виход</button></p>
+												<center style="height: 545px">
+													<div class="own_container">
+														<p class="m-1"><img src="css/img/gerb.png" width="70px" height="70px" ></p>
+														<p class="m-1"><strong>Конкурс МАН</strong></p>
+														<p class="m-1">CompetitionMan@gmail.com</p>
+														<p class="m-1"><button class="btn btn-primary own_btn" onclick="child__to_write_test()">Тести</button></p>
+														<p class="m-1"><button class="btn btn-outline-primary own_btn" onclick="child__go_out()">Виход</button></p>
+													</div>
+												</center>
+											</center>
+											<center id="child__tests" class="none">
+												<h3 class="">Politest</h2>
+												<hr class="mb-2">
+												<center style="height: 545px">
+													<div class="w-100">
+														<button class="btn child__test_button m-2 p-0" onclick="child__write_test();">
+															<div class="child__test">
+																<p class="name_of_the_test">Ірраціональні нерівності</p>
+																<p class="class_of_the_test">10-й клас</p>
+																<p class="subject_of_the_test">Алгебра</p>
+																<p class="time_of_the_test">Час проходження тесту: 5 хвилин</p>
+																<p class="time_update_of_the_test">16.02.2021 18:55</p>
+																<p class="user_update_of_the_test">Автор: Де-хто</p>
+																<div class="color_of_the_test allowed"></div>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="btn child__test_button m-2 p-0" onclick="child__test_passed();">
+															<div class="child__test">
+																<p class="name_of_the_test">Метод математичної індукції</p>
+																<p class="class_of_the_test">10-й клас</p>
+																<p class="subject_of_the_test">Алгебра</p>
+																<p class="time_of_the_test">Час проходження тесту: 10 хвилин</p>
+																<p class="time_update_of_the_test">16.02.2021 19:55</p>
+																<p class="user_update_of_the_test">Автор: Де-хто</p>
+																<div class="color_of_the_test passed"></div>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="btn child__test_button m-2 p-0" onclick="child__test_banned();">
+															<div class="child__test">
+																<p class="name_of_the_test">Метод інтервалів</p>
+																<p class="class_of_the_test">10-й клас</p>
+																<p class="subject_of_the_test">Алгебра</p>
+																<p class="time_of_the_test">Час проходження тесту: 15 хвилин</p>
+																<p class="time_update_of_the_test">16.02.2021 20:55</p>
+																<p class="user_update_of_the_test">Автор: Де-хто</p>
+																<div class="color_of_the_test banned"></div>
+															</div>
+														</button>
+													</div>
+													<div class="snackbars">
+														<div id="snackbar_first">
+															Ви вже пройшли цей тест. Щоб отримати другу спробу, треба звернутися до вчителя.
+														</div>
+														<div id="snackbar_second">
+															Цей тест вам ще вчитель не дозволив проходити.
+														</div>
+													</div>
+												</center>
+											</center>
+											<center id="child__write_test">
+												<h3 class="">Politest</h2>
+												<hr class="mb-2">
+												<button class="btn btn-primary button_to_end" id="openDialog">Завершити тест</button>
+												<dialog>
+													<p>Ви впевненні, що хочете завершити тест? Всі ваші відповіді будут надіслані вчителеві.</p>
+													<button id="closeDialog" class="btn btn-primary">Ні, назад</button>
+													<button class="btn btn-primary" onclick="end_the_test();">Так, завершити</button>
+												</dialog>
+												<center style="height: 545px; position: relative;">
+													<div class="w-100">
+														<div class="answer">
+															<div class="container answers_container">
+																<form name="test_answer">
+																<div class="one_question">
+																	<p class="answer__text">Обчисліть рівняння: х = y + 10, якщо у = -5</p>
+																	<hr>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer1"></div>
+																			<div class="col-lg-11 col-sm-11"><span>5</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer1"></div>
+																			<div class="col-lg-11 col-sm-11"><span>3</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer1"></div>
+																			<div class="col-lg-11 col-sm-11"><span>2</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer1"></div>
+																			<div class="col-lg-11 col-sm-11"><span>6</span></div>
+																		</div>
+																</div>
+																<div class="one_question">
+																	<p class="answer__text">Обчисліть рівняння: х = y + 11, якщо у = -5</p>
+																	<hr>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer2"></div>
+																			<div class="col-lg-11 col-sm-11"><span>5</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer2"></div>
+																			<div class="col-lg-11 col-sm-11"><span>3</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer2"></div>
+																			<div class="col-lg-11 col-sm-11"><span>2</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer2"></div>
+																			<div class="col-lg-11 col-sm-11"><span>6</span></div>
+																		</div>
+																</div>
+																<div class="one_question">
+																	<p class="answer__text">Обчисліть рівняння: х = y + 8, якщо у = -5</p>
+																	<hr>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer3"></div>
+																			<div class="col-lg-11 col-sm-11"><span>5</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer3"></div>
+																			<div class="col-lg-11 col-sm-11"><span>3</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer3"></div>
+																			<div class="col-lg-11 col-sm-11"><span>2</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer3"></div>
+																			<div class="col-lg-11 col-sm-11"><span>6</span></div>
+																		</div>
+																</div>
+																<div class="one_question">
+																	<p class="answer__text">Обчисліть рівняння: х = y + 7, якщо у = -5</p>
+																	<hr>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer4"></div>
+																			<div class="col-lg-11 col-sm-11"><span>5</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer4"></div>
+																			<div class="col-lg-11 col-sm-11"><span>3</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer4"></div>
+																			<div class="col-lg-11 col-sm-11"><span>2</span></div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer4"></div>
+																			<div class="col-lg-11 col-sm-11"><span>6</span></div>
+																		</div>
+																</div>
+															</form>
+															</div>
+														</div>
+													</div>
 												</center>
 											</center>
 										</div>
 									</div>
 									<div class="modal-footer">
+										<button class="btn btn-outline-primary" onclick="Restart();">Переобрати роль</button>
 									  	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
 									</div>
 								</div>
