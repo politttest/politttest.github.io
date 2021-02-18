@@ -50,6 +50,7 @@ function child__test_banned(){
         x.className = x.className.replace("show", "");
     }, 3000);
 }
+
 var dialog = document.querySelector('dialog');
     document.querySelector('#openDialog').onclick = function() {
         dialog.show(); // Показываем диалоговое окно
@@ -62,4 +63,27 @@ function end_the_test(){
     document.getElementById("child__write_test").className = "none"
     clear_answer_in_the_write_test();
     document.getElementById("child__tests").className = "block"
+}
+function teacher(){
+    document.getElementById("choice").className = "none"
+    document.getElementById("teacher__auth").className = "block"
+}
+function teacher__connect(){
+    document.getElementById("teacher__auth").className = "none"
+    document.getElementById("teacher__main_menu").className = "block"
+}
+function teacher__to_list_with_test(){
+    document.getElementById("teacher__main_menu").className = "none"
+    document.getElementById("teacher__to_list_with_test").className = "block"
+}
+function teacher__test_banned(){
+    var x = document.getElementById("snackbar_third");
+    x.className = "show";
+    setTimeout(() => {
+        x.className = x.className.replace("show", "");
+    }, 3000);
+}
+function teacher__update_test(){
+    document.getElementById("teacher__to_list_with_test").className = "none"
+    document.getElementById("teacher__update_test").className = "block"
 }
