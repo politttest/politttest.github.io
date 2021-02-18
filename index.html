@@ -10,6 +10,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 	<link rel="stylesheet" href="icofont/icofont.css">
 	<link rel="stylesheet" href="css/style_modal.css">
+	<link rel="stylesheet" href="css/style_update_test.css">
 	<title>Politest</title>	
 </head>
 <body>
@@ -41,7 +42,7 @@
 									</div>
 									<div class="modal-body p-0">
 										<div class="modal-body__header_container">
-											<center id="choice" class="none">
+											<center id="choice" class="block">
 												<h5 class="p-3">Оберіть роль</h5>
 												<button class="btn btn-primary text-light mb-4" onclick="child();">Учень</button>
 												<button class="btn btn-primary text-light mb-4" onclick="teacher();">Вчитель</button>
@@ -76,8 +77,8 @@
 													<div class="w-100">
 														<button class="btn child__test_button m-2 p-0" onclick="child__write_test();">
 															<div class="child__test">
-																<p class="name_of_the_test">Ірраціональні нерівності</p>
-																<p class="class_of_the_test">10-й клас</p>
+																<p class="name_of_the_test">Знаходження кореня</p>
+																<p class="class_of_the_test">7-й клас</p>
 																<p class="subject_of_the_test">Алгебра</p>
 																<p class="time_of_the_test">Час проходження тесту: 5 хвилин</p>
 																<p class="time_update_of_the_test">16.02.2021 18:55</p>
@@ -122,7 +123,7 @@
 													</div>
 												</center>
 											</center>
-											<center id="child__write_test">
+											<center id="child__write_test" class="none">
 												<h3 class="">Politest</h2>
 												<hr class="mb-2">
 												<button class="btn btn-primary button_to_end" id="openDialog">Завершити тест</button>
@@ -219,6 +220,128 @@
 															</form>
 															</div>
 														</div>
+													</div>
+												</center>
+											</center>
+											<center id="teacher__auth" class="none">
+												<h3 class="">Politest</h2>
+												<hr>
+												<center class="main_menu__auth" style="height: 545px">
+													<div class="own_container">
+														<p><img src="css/img/gerb.png" width="70px" height="70px" ></p>
+														<button class="btn btn-outline-primary own_btn" onclick="teacher__connect();">Войти через аккаунт Google</button>
+													</div>
+												</center>
+											</center>
+											<center id="teacher__main_menu" class="none">
+												<h3>Politest</h2>
+												<hr>
+												<center style="height: 545px">
+													<div class="own_container">
+														<p class="m-1"><img src="css/img/gerb.png" width="70px" height="70px" ></p>
+														<p class="m-1"><strong>Конкурс МАН</strong></p>
+														<p class="m-1">CompetitionMan@gmail.com</p>
+														<p class="m-1"><button class="btn btn-primary own_btn" onclick="teacher__to_list_with_test()">Тести</button></p>
+														<p class="m-1"><button class="btn btn-primary own_btn" onclick="teacher__to_create_test()">Створити тест</button></p>
+														<p class="m-1"><button class="btn btn-primary own_btn" onclick="teacher__to_classes()">Класи</button></p>
+														<p class="m-1"><button class="btn btn-outline-primary own_btn" onclick="child__go_out()">Виход</button></p>
+													</div>
+												</center>
+											</center>
+											<center id="teacher__to_list_with_test" class="none">
+												<h3 class="">Politest</h2>
+												<hr>
+												<center style="height: 545px">
+													<div class="w-100">
+														<div class="w-100">
+															<button class="btn child__test_button m-2 p-0" onclick="teacher__update_test();">
+																<div class="child__test">
+																	<p class="name_of_the_test">Знаходження кореня</p>
+																	<p class="class_of_the_test">7-й клас</p>
+																	<p class="subject_of_the_test">Алгебра</p>
+																	<p class="time_of_the_test">Час проходження тесту: 5 хвилин</p>
+																	<p class="time_update_of_the_test">16.02.2021 18:55</p>
+																	<p class="user_update_of_the_test">Автор: Де-хто</p>
+																</div>
+															</button>
+														</div>
+														<div class="w-100">
+															<button class="btn child__test_button m-2 p-0" onclick="teacher__test_banned();">
+																<div class="child__test">
+																	<p class="name_of_the_test">Метод математичної індукції</p>
+																	<p class="class_of_the_test">10-й клас</p>
+																	<p class="subject_of_the_test">Алгебра</p>
+																	<p class="time_of_the_test">Час проходження тесту: 10 хвилин</p>
+																	<p class="time_update_of_the_test">16.02.2021 19:55</p>
+																	<p class="user_update_of_the_test">Автор: Де-хто</p>
+																</div>
+															</button>
+														</div>
+														<div class="w-100">
+															<button class="btn child__test_button m-2 p-0" onclick="teacher__test_banned();">
+																<div class="child__test">
+																	<p class="name_of_the_test">Метод інтервалів</p>
+																	<p class="class_of_the_test">10-й клас</p>
+																	<p class="subject_of_the_test">Алгебра</p>
+																	<p class="time_of_the_test">Час проходження тесту: 15 хвилин</p>
+																	<p class="time_update_of_the_test">16.02.2021 20:55</p>
+																	<p class="user_update_of_the_test">Автор: Де-хто</p>
+																</div>
+															</button>
+														</div>
+														<div class="snackbars">
+															<div id="snackbar_third">
+																В демонстраційній версії не доступно.
+															</div>
+														</div>
+													</div>
+												</center>
+											</center>
+											<center id="teacher__update_test" class="none">
+												<h3>Politest</h2>
+												<hr>
+												<center>
+													<fieldset action="" class="pole_update_test">
+														<legend>Назва тесту</legend>
+														<input type="text" id="name_of_the_update_test" class="enter_pole_update_test">
+													</fieldset>
+													<fieldset action="" class="pole_update_test">
+														<legend>Клас</legend>
+														<select class="select" id="klass">
+															<option selected value="o1">8-й клас</option>
+															<option value="o2">9-й клас</option>
+															<option value="o3">10-й клас</option>
+															<option value="o4">11-й клас</option>
+														</select>
+													</fieldset>
+													<fieldset action="" class="pole_update_test">
+														<legend>Предмет</legend>
+														<select class="select" id="subject"></select>
+													</fieldset>
+													<fieldset action="" class="pole_update_test">
+														<legend>Час проходження тесту (у хвилинах)</legend>
+														<input type="number" id="time_of_the_update_test" class="enter_pole_update_test">
+													</fieldset>
+													<button id="questions" onclick="teacher__to_list_with_questions();">Питання</button>
+													<button id="testers" onclick="teacher__to_list_with_testers();">Тестери</button>
+													<button id="marks" onclick="teacher__to_list_with_marks();">Оцінки учнів</button>
+													<button id="update" onclick="teacher__to_list_with_update();">Зберегти</button>
+													<button id="delete" onclick="delete_test();">Видалити</button>
+												</center>
+											</center>
+											<center id="teacher__list_with_questions" class="block">
+												<h3>Politest</h2>
+												<hr>
+												<center style="height: 545px">
+													<div class="w-100">
+														<button class="teacher__button_question">
+															<div class="one_question">
+																<p class="name_of_the_question">Питання 1</p>
+																<p class="content_of_the_question">Обчисліть рівняння: х = y + 10, якщо у = -5</p>
+																<p class="mark_of_the_question">1 бал</p>
+																<div class="delete_of_the_question"></div>
+															</div>
+														</button>
 													</div>
 												</center>
 											</center>
