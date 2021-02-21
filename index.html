@@ -31,6 +31,10 @@
 						<span class="politest text-white display-6" >Politest</span>
 					</a>
 					<div class="buttons">
+						<button class="btn btn-outline-success text-light" onclick="Go_To_PlayMarket();">
+							<img src="css/img/Google_Play_symbol.svg.png" width="27px" height="27px">
+							<span>Завантажити Politest</span>
+						</button>
 						<button class="btn btn-outline-primary text-light" onclick="Authentication();"> <span style="font-size: 18px;"> Авторизація </button>
 						<button class="btn btn-outline-primary text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" onclick="PopUp();"> <span style="font-size: 18px;"> Демо версія </button>
 						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -48,7 +52,7 @@
 												<button class="btn btn-primary text-light mb-4" onclick="teacher();">Вчитель</button>
 											</center>
 											<center id="child__auth" class="none">
-												<h3 class="">Politest</h2>
+												<h3 class="">Politest</h3>
 												<hr>
 												<center class="main_menu__auth" style="height: 545px">
 													<div class="own_container">
@@ -71,7 +75,7 @@
 												</center>
 											</center>
 											<center id="child__tests" class="none">
-												<h3 class="">Politest</h2>
+												<h3 class="">Politest</h3>
 												<hr class="mb-2">
 												<center style="height: 545px">
 													<div class="w-100">
@@ -124,7 +128,7 @@
 												</center>
 											</center>
 											<center id="child__write_test" class="none">
-												<h3 class="">Politest</h2>
+												<h3 class="">Politest</h3>
 												<hr class="mb-2">
 												<button class="btn btn-primary button_to_end" id="openDialog">Завершити тест</button>
 												<dialog>
@@ -224,7 +228,7 @@
 												</center>
 											</center>
 											<center id="teacher__auth" class="none">
-												<h3 class="">Politest</h2>
+												<h3 class="">Politest</h3>
 												<hr>
 												<center class="main_menu__auth" style="height: 545px">
 													<div class="own_container">
@@ -234,7 +238,7 @@
 												</center>
 											</center>
 											<center id="teacher__main_menu" class="none">
-												<h3>Politest</h2>
+												<h3>Politest</h3>
 												<hr>
 												<center style="height: 545px">
 													<div class="own_container">
@@ -249,7 +253,7 @@
 												</center>
 											</center>
 											<center id="teacher__to_list_with_test" class="none">
-												<h3 class="">Politest</h2>
+												<h3 class="">Politest</h3>
 												<hr>
 												<center style="height: 545px">
 													<div class="w-100">
@@ -298,7 +302,7 @@
 												</center>
 											</center>
 											<center id="teacher__update_test" class="none">
-												<h3>Politest</h2>
+												<h3>Politest</h3>
 												<hr>
 												<center>
 													<fieldset action="" class="pole_update_test">
@@ -322,26 +326,192 @@
 														<legend>Час проходження тесту (у хвилинах)</legend>
 														<input type="number" id="time_of_the_update_test" class="enter_pole_update_test">
 													</fieldset>
-													<button id="questions" onclick="teacher__to_list_with_questions();">Питання</button>
+													<button style="z-index: 5;" id="questions" onclick="teacher__to_list_with_questions();">Питання</button>
 													<button id="testers" onclick="teacher__to_list_with_testers();">Тестери</button>
 													<button id="marks" onclick="teacher__to_list_with_marks();">Оцінки учнів</button>
 													<button id="update" onclick="teacher__to_list_with_update();">Зберегти</button>
 													<button id="delete" onclick="delete_test();">Видалити</button>
+													<div class="snackbars">
+														<div id="snackbar_fifth">
+															В демонстраційній версії не доступно.
+														</div>
+													</div>
 												</center>
 											</center>
-											<center id="teacher__list_with_questions" class="block">
-												<h3>Politest</h2>
+											<center id="teacher__list_with_questions" class="none">
+												<h3>Politest</h3>
 												<hr>
 												<center style="height: 545px">
 													<div class="w-100">
-														<button class="teacher__button_question">
-															<div class="one_question">
+														<button class="teacher__button_question" onclick="teacher__to_answer();">
+															<div class="block__one_question">
 																<p class="name_of_the_question">Питання 1</p>
 																<p class="content_of_the_question">Обчисліть рівняння: х = y + 10, якщо у = -5</p>
 																<p class="mark_of_the_question">1 бал</p>
 																<div class="delete_of_the_question"></div>
 															</div>
 														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_question" onclick="teacher__answer_banned();">
+															<div class="block__one_question">
+																<p class="name_of_the_question">Питання 1</p>
+																<p class="content_of_the_question">Обчисліть рівняння: х = y + 11, якщо у = -5</p>
+																<p class="mark_of_the_question">1 бал</p>
+																<div class="delete_of_the_question"></div>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_question" onclick="teacher__answer_banned();">
+															<div class="block__one_question">
+																<p class="name_of_the_question">Питання 1</p>
+																<p class="content_of_the_question">Обчисліть рівняння: х = y + 8, якщо у = -5</p>
+																<p class="mark_of_the_question">1 бал</p>
+																<div class="delete_of_the_question"></div>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_question" onclick="teacher__answer_banned();">
+															<div class="block__one_question">
+																<p class="name_of_the_question">Питання 1</p>
+																<p class="content_of_the_question">Обчисліть рівняння: х = y + 7, якщо у = -5</p>
+																<p class="mark_of_the_question">1 бал</p>
+																<div class="delete_of_the_question"></div>
+															</div>
+														</button>
+													</div>
+													<div class="snackbars">
+														<div id="snackbar_forth">
+															В демонстраційній версії не доступно.
+														</div>
+													</div>
+												</center>
+											</center>
+											<center id="teacher__answer" class="none">
+												<h3>Politest</h3>
+												<hr>
+												<center style="height: 545px">
+													<p>Пока пусто</p>
+												</center>
+											</center>
+											<center id="teacher__list_with_testers" class="none">
+												<h3>Politest</h3>
+												<hr>
+												<button class="btn btn-primary button_to_end2" onclick="teacher__update_test();">Зберегти</button>
+												<center style="height: 545px">
+													<div class="teacher__container_with_classes">
+														<div class="one_class">
+															<p>Л-10В</p>
+														</div>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Влад Влад</p>
+																<p class="email_of_the_user">vladvlad@gmail.com</p>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Віка Віка</p>
+																<p class="email_of_the_user">vikavika@gmail.com</p>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Дмитро Дмитро</p>
+																<p class="email_of_the_user">dimadima@gmail.com</p>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Марія Марія</p>
+																<p class="email_of_the_user">mashamasha@gmail.com</p>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Олена Олена</p>
+																<p class="email_of_the_user">olenaolena@gmail.com</p>
+															</div>
+														</button>
+													</div>
+													<div class="snackbars">
+														<div id="snackbar_sixth">
+															В демонстраційній версії не доступно.
+														</div>
+													</div>
+												</center>
+											</center>
+											<center id="teacher__list_with_results" class="none">
+												<h3>Politest</h3>
+												<hr>
+												<button class="btn btn-primary button_to_end3" onclick="teacher__button_question();">Розіслати оцінки</button>
+												<center style="height: 545px">
+													<div class="teacher__container_with_classes">
+														<div class="one_class">
+															<p>Л-10В</p>
+														</div>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question2();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Влад Влад</p>
+																<p class="mark_of_the_user">9 з 12 балів</p>
+																<p class="data_of_the_user">19.02.2021 12:08</p>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question2();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Віка Віка</p>
+																<p class="mark_of_the_user">10 з 12 балів</p>
+																<p class="data_of_the_user">19.02.2021 12:10</p>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question2();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Дмитро Дмитро</p>
+																<p class="mark_of_the_user">6 з 12 балів</p>
+																<p class="data_of_the_user">19.02.2021 12:11</p>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question2();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Марія Марія</p>
+																<p class="mark_of_the_user">12 з 12 балів</p>
+																<p class="data_of_the_user">19.02.2021 12:13</p>
+															</div>
+														</button>
+													</div>
+													<div class="w-100">
+														<button class="teacher__button_user" onclick="teacher__button_question2();">
+															<div class="teacher__container_user">
+																<p class="name_of_the_user">Олена Олена</p>
+																<p class="mark_of_the_user">10 з 12 балів</p>
+																<p class="data_of_the_user">19.02.2021 12:15</p>
+															</div>
+														</button>
+													</div>
+													<div class="snackbars">
+														<div id="snackbar_seventh">
+															В демонстраційній версії не доступно.
+														</div>
 													</div>
 												</center>
 											</center>
