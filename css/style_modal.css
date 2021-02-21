@@ -118,7 +118,7 @@ p{
     position: relative;
     margin-top: 10px;
 }
-#snackbar_second, #snackbar_first, #snackbar_third{
+#snackbar_second, #snackbar_first, #snackbar_third, #snackbar_forth, #snackbar_fifth, #snackbar_sixth, #snackbar_seventh{
     padding: 10px;
     background-color: rgb(53, 53, 53);
     color: white;
@@ -136,7 +136,7 @@ p{
     font-size: 17px;
 }
 
-#snackbar_first.show, #snackbar_second.show, #snackbar_third.show {
+#snackbar_first.show, #snackbar_second.show, #snackbar_third.show, #snackbar_forth.show, #snackbar_fifth.show, #snackbar_sixth.show, #snackbar_seventh.show{
     visibility: visible;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
@@ -153,6 +153,7 @@ p{
 .one_question{
     text-align: justify;
     border-radius: 10px;
+    margin: 10px;
     border: 1px solid rgb(174, 174, 255);
     position: relative;
     padding: 15px;
@@ -186,9 +187,9 @@ input{
 
 dialog {
     z-index: 10;
-    background-color: rgb(115, 192, 218);
+    background-color: rgb(209, 243, 255);
     width: 300px; 
-    box-shadow: 0 5px 10px midnightblue;
+    box-shadow: 0 5px 10px rgb(171, 171, 252);
     border-radius: 5px;
     border: none;
     border-radius: 10px;
@@ -225,10 +226,9 @@ dialog p{
     background-color: white;
     border: none;
 }
-.one_question{
+.block__one_question{
     width: 380px;
     height: 77px;
-    margin: 10px;
     padding: 5px 15px;
     border-radius: 10px;
     border: 1px solid rgb(115, 192, 218);
@@ -250,4 +250,85 @@ dialog p{
     color: rgb(115, 192, 218);
     top: 51px;
     font-size: 14px;
+}
+
+
+#teacher__list_with_testers hr, #teacher__list_with_results hr{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.teacher__container_with_classes{
+    padding: 8px;
+    height: 62px;
+    border-bottom: 1px solid silver;
+
+}
+.one_class{
+    float: left;
+    width: 200px;
+    height: 46px;
+    border: 1px solid rgb(115, 192, 218);
+    border-radius: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.one_class p{
+    padding-top: 9px;
+    font-size: 18px;
+}
+.teacher__container_user{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(115, 192, 218);
+    height: 45px;
+    padding: 5px 10px;
+    position: relative;
+}
+.name_of_the_user{
+    position: absolute;
+    color: black;
+    top: 0;
+    font-size: 15px;
+}
+.email_of_the_user{
+    position: absolute;
+    top: 20px;
+    font-size: 14px;
+}
+.mark_of_the_user{
+    position: absolute;
+    top: 20px;
+    font-size: 14px;
+}
+.data_of_the_user{
+    position: absolute;
+    color: black;
+    font-size: 12px;
+    right: 10px;
+    bottom: 5px;
+}
+
+.teacher__button_user{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: white;
+}
+.button_to_end2{
+    position: absolute;
+    z-index: 10;
+    height: 40px;
+    left: 140px;
+    padding: 0 20px;
+    bottom: 10px;
+}
+.button_to_end3{
+    position: absolute;
+    z-index: 10;
+    height: 40px;
+    left: 100px;
+    padding: 0 20px;
+    bottom: 10px;
 }
