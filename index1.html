@@ -34,21 +34,21 @@
 						<button class="btn btn-outline-primary text-light" onclick="Authentication();"> 
 							<span style="font-size: 18px;"> Авторизація </span>
 						</button>
-						<button class="btn btn-outline-primary text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" type="button"> 
+						<button class="btn btn-outline-primary text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button"> 
 							<span style="font-size: 18px;"> Демо версія </span>
 						</button>
 						<button class="btn btn-outline-success text-light" onclick="Go_To_PlayMarket();">
 							<img src="css/img/Google_Play_symbol.svg.png" width="27px" height="27px">
 							<span>Завантажити Politest</span>
 						</button>
-						<button class="btn btn-outline-warning text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button">
+						<button class="btn btn-outline-warning text-light">
 							<span style="font-size: 18px;">Про проєкт</span>
 						</button>
-						<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
-									  	<h5 class="modal-title" id="staticBackdropLabel1">Демо версія</h5>
+									  	<h5 class="modal-title" id="staticBackdropLabel">Демо версія</h5>
 									  	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="Restart();"></button>
 									</div>
 									<div class="modal-body p-0">
@@ -526,23 +526,6 @@
 									</div>
 									<div class="modal-footer">
 										<button class="btn btn-outline-primary" onclick="Restart();">Переобрати роль</button>
-									  	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Модальное окно с информацией -->
-						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-							<div class="modal-dialog modal-xl">
-								<div class="modal-content">
-									<div class="modal-header">
-									  	<h5 class="modal-title" id="staticBackdropLabel">Інформація про проєкт</h5>
-									  	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="modal-body p-0">
-										...
-									</div>
-									<div class="modal-footer">
 									  	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
 									</div>
 								</div>

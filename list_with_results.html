@@ -23,19 +23,13 @@
         <!-- <div class="row">
           <div class="offset-lg-4 col-lg-1"> -->
             <div class="d-flex justify-content-evenly">
-            <button class="btn btn-outline-primary btn-light mb-3" onclick="to_test();">Повернення</button>
-          <!-- </div>
-          <div class="col-lg-1"> -->
-            <div class="dropdown">
-              <button class="btn btn-secondary btn-outline-primary btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Оберіть учня
-              </button>
-              <ul id="list_with_name_students" class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="overflow-y: auto; height: 200px;">
-              </ul>
-            </div>
-          <!-- </div>
-          <div class="col-lg-1"> -->
-            <a href="list_with_results.html" type="button" class="btn btn-outline-primary btn-light mb-3">Оновити</a>
+              <button class="btn btn-outline-primary btn-light mb-3" onclick="to_test();">Повернення</button>
+              <div class="dropdown">
+                <button class="btn btn-secondary btn-outline-primary btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Оберіть учня</button>
+                <ul id="list_with_name_students" class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="overflow-y: auto; height: 200px;"></ul>
+              </div>
+              <a href="list_with_results.html" type="button" class="btn btn-outline-primary btn-light mb-3">Оновити</a>
+              <button class="btn btn-outline-success mb-3" onclick="see_true_answers();">Показати правильні відповіді</button>
           </div>
           <!--</div>
         </div> -->
@@ -44,8 +38,9 @@
     <div class="container mt-5">
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <!--<div class="accordion-item">
+              
               <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <button class="accordion-button collapsed text-left" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                   <div class="container">
                     <div class="row">
                       Accordion Item #1
@@ -56,15 +51,16 @@
                       8 <br>
                       9
                     </div>
-                    </div>
                   </div>
                 </button>
               </h2>
+              <button class="btn btn-outline-primary fs-8 ms-3 mt-2">Показать правильный ответ</button>
               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
               </div>
-            </div> -->
+            </div>-->
           </div> 
+          
     </div>
         <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
