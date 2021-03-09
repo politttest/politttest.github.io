@@ -1,7 +1,8 @@
 var photoURL_google,  displayName_google, email_google, element_google_photo;
 var provider = new firebase.auth.GoogleAuthProvider();
 
-function Authentication(){  firebase.auth().signInWithPopup(provider).then((result) => {
+function Authentication(){  
+  firebase.auth().signInWithPopup(provider).then((result) => {
 
   /** @type {firebase.auth.OAuthCredential} */
   var credential = result.credential;
@@ -15,8 +16,10 @@ function Authentication(){  firebase.auth().signInWithPopup(provider).then((resu
   localStorage.setItem('email_google', user.email);
   //console.log(user);
   // Переход на Главную страницу в случае успешной авторизации.
-  document.location.href = "MainMenu.html";
-
+  firebase.database().ref("/users/").orderByKey().on('value', snapshot => {
+    snapshot.forEach(function (childSnapshot) {
+      document.location.href = "MainMenu.html"; 
+})})
 }).catch((error) => {
   //console.log(error)
   // Handle Errors here.
@@ -27,6 +30,7 @@ function Authentication(){  firebase.auth().signInWithPopup(provider).then((resu
   // The firebase.auth.AuthCredential type that was used.
   var credential = error.credential;
   // ...
+  window.alert("Цей сайт виключно для вчителів.")
 });}
 
  

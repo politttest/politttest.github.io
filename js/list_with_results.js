@@ -6,7 +6,7 @@ function to_test() {
 const databaseRef_to_answers = firebase.database().ref("/answers/").child(localStorage.id);
 const databaseRef_to_results = firebase.database().ref("/results/").child(localStorage.id);
 const databaseRef_to_users = firebase.database().ref("/users/");
-var value, id_item_accordion = 1, time_arr_with_answers = [], arr_with_all_questions = [], arr_with_questions_one_test = [];
+var value, id_item_accordion = 1, time_arr_with_answers = [], arr_with_all_questions = [], arr_with_questions_one_test = [], arr_with_questions_one_test__DELETE = [], arr_with_id_true_answers = [];
 
 var list_with_results = document.getElementById("accordionFlushExample");
 var list_with_name_students = document.getElementById("list_with_name_students")
@@ -21,8 +21,7 @@ databaseRef_to_results.orderByKey().on('value', snapshot => {
     snapshot.forEach(function (childSnapshot) {
         value = childSnapshot.val();
         arr_with_answers = value.answers;
-        arr_with_questions_one_test.push(value)
-        //console.log(value);
+        arr_with_questions_one_test__DELETE.push(value)
 
         var accordionItem = document.createElement("div");
         accordionItem.className = "accordion-item";
@@ -40,9 +39,11 @@ databaseRef_to_results.orderByKey().on('value', snapshot => {
         accordionButtonAnswers.className = "row m-2"
         accordionButtonAnswers.style.textAlign = "left";
         for(var g = 0; g < arr_with_answers.length; g++){
-            time_arr_with_answers.push("<p class='p-0 m-0'><span class='fw-bold'>Відповідь: </span>" +  arr_with_answers[g].text + "</p>")
+            answer_g = g+1;
+            accordionButtonAnswers.innerHTML += "<p class='p-0 m-0'><span class='fw-bold' id='answer" + answer_g + "'>Відповідь: </span>" +  arr_with_answers[g].text + "</p>"
+            //time_arr_with_answers.push("<p class='p-0 m-0'><span class='fw-bold'>Відповідь: </span>" +  arr_with_answers[g].text + "</p>")
         }
-        accordionButtonAnswers.innerHTML = time_arr_with_answers;
+        //accordionButtonAnswers.innerHTML = time_arr_with_answers;
         accordionButton.setAttribute("type", "button");
         accordionButton.setAttribute("data-bs-toggle", "collapse");
         accordionButton.setAttribute("data-bs-target","#flush-collapse" + id_item_accordion);
@@ -85,7 +86,7 @@ databaseRef_to_results.orderByKey().on('value', snapshot => {
 
         id_item_accordion++;
         time_arr_with_answers = [];
-    })})
+    })});
 var count_user = 0,
     i = 0, 
     q = 1,
@@ -101,7 +102,6 @@ var count_user = 0,
     count_user_in_results = 0,
     list_with_name_students = document.getElementById("list_with_name_students");
 
-
 databaseRef_to_users.orderByKey().on('value', snapshot => {  
     snapshot.forEach(function (childSnapshot) {
         value = childSnapshot.val();
@@ -109,6 +109,31 @@ databaseRef_to_users.orderByKey().on('value', snapshot => {
         arr_displayName.push(value.displayName);
         count_user++;
 })}) 
+
+setTimeout(() => {
+    for(var q = 0; q < arr_with_questions_one_test__DELETE.length; q++){
+        var time_arr = arr_with_questions_one_test__DELETE[q].answers
+        //console.log(arr_with_questions_one_test__DELETE[q])
+        for(var qq = 0; qq < time_arr.length; qq++){
+            var time_time_arr = time_arr[qq]
+            //console.log(time_time_arr)
+            if(time_time_arr.selected){
+                arr_with_id_true_answers.push(qq+1);
+            }
+        }
+    }
+    console.log(arr_with_id_true_answers); //масив в идами правильных ответов
+}, 1600);
+ //доделать подсветку правильных ответов
+function see_true_answers(){
+    for(var t = 1; t <= arr_with_id_true_answers; t ++){
+        console.log(">>>>>>")
+        var time_answer = document.getElementById("flush-heading" + t).getElementById("answer" + arr_with_id_true_answers[t]);
+        console.log(time_answer)
+        time_answer.className = "green";
+    }  
+}
+
 setTimeout(() => {
     for(var e = 0; e < arr_with_all_questions.length; e ++){
         test_userID = arr_with_all_questions[e].userId; 
