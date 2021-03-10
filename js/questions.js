@@ -1,4 +1,4 @@
-const databaseRef_answers = firebase.database().ref("/answers/").child(localStorage.id);
+const databaseRef_answers = firebase.database().ref("/answers/").child(sessionStorage.id);
 var index_question = 1;
 databaseRef_answers.orderByKey().on('value', snapshot => {
     
@@ -44,7 +44,7 @@ databaseRef_answers.orderByKey().on('value', snapshot => {
 
     
 /* Название теста к которому добавляем вопросы */
-var qst = localStorage.name;
+var qst = sessionStorage.name;
 console.log(qst);
 document.getElementById("ntfwcq").textContent = qst;
 

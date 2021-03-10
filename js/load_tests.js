@@ -75,11 +75,11 @@ function ID(){
     var way = document.getElementById(e.target.id)
     var way_to_id = way.nextSibling.nextSibling.nextSibling.nextSibling.textContent;
     console.log(way_to_id);
-    localStorage.id = way_to_id;
-    localStorage.name = way.textContent;
-    localStorage.cl1ss = way.nextSibling.textContent;
-    localStorage.subject = way.nextSibling.nextSibling.textContent;
-    localStorage.time = time_of_the_test;
+    sessionStorage.id = way_to_id;
+    sessionStorage.name = way.textContent;
+    sessionStorage.cl1ss = way.nextSibling.textContent;
+    sessionStorage.subject = way.nextSibling.nextSibling.textContent;
+    sessionStorage.time = time_of_the_test;
     document.location.href = "update_test.html";})
 }
 

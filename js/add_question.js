@@ -126,7 +126,7 @@ function save_the_question(){
     }
 
 
-    var newPostKey = firebase.database().ref().child('/answers/').child(localStorage.id).push().key;
+    var newPostKey = firebase.database().ref().child('/answers/').child(sessionononononononononStorage.id).push().key;
 
     var postData1 = {
         text: quest,
@@ -142,8 +142,8 @@ function save_the_question(){
     };
         
         var updates = {};
-        updates['/answers/' + localStorage.id + '/' + newPostKey] = postData1;
-        updates['/questions/' + localStorage.id + '/' + newPostKey] = postData2;
+        updates['/answers/' + sessionononononononononStorage.id + '/' + newPostKey] = postData1;
+        updates['/questions/' + sessionononononononononStorage.id + '/' + newPostKey] = postData2;
       
         return firebase.database().ref().update(updates);
 }
@@ -151,8 +151,8 @@ function save_the_question(){
 {
 
     /*
-    var way_to_answer =  firebase.database().ref().child('/answers/').child(localStorage.id).push();
-    localStorage.id_way_to_answer = way_to_answer.key
+    var way_to_answer =  firebase.database().ref().child('/answers/').child(sessionononononononononStorage.id).push();
+    sessionononononononononStorage.id_way_to_answer = way_to_answer.key
     way_to_answer.update({
         mark: mark,
         text: quest,
@@ -187,8 +187,8 @@ function save_the_question(){
         multi = "true"
     }
 
-    var way_to_question =  firebase.database().ref().child('/questions/').child(localStorage.id).child(localStorage.id_way_to_answer);
-    //localStorage.id_way_to_question = way_to_question.key
+    var way_to_question =  firebase.database().ref().child('/questions/').child(sessionononononononononStsessionsionsionsionsionsionsionsionsionStorage.id_way_to_answer);
+    //sessionononononononononStorage.id_way_to_question = way_to_question.key
     way_to_question.update({
         multi: multi,
         text: quest,

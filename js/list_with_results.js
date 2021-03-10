@@ -3,8 +3,8 @@ function to_test() {
 }
 
 
-const databaseRef_to_answers = firebase.database().ref("/answers/").child(localStorage.id);
-const databaseRef_to_results = firebase.database().ref("/results/").child(localStorage.id);
+const databaseRef_to_answers = firebase.database().ref("/answers/").child(sessionStorage.id);
+const databaseRef_to_results = firebase.database().ref("/results/").child(sessionStorage.id);
 const databaseRef_to_users = firebase.database().ref("/users/");
 var value, id_item_accordion = 1, time_arr_with_answers = [], arr_with_all_questions = [], arr_with_questions_one_test = [], arr_with_questions_one_test__DELETE = [], arr_with_id_true_answers = [];
 
@@ -122,7 +122,7 @@ setTimeout(() => {
             }
         }
     }
-    console.log(arr_with_id_true_answers); //масив в идами правильных ответов
+    console.log(arr_with_id_true_answers); //масив c идами правильных ответов
 }, 1600);
  //доделать подсветку правильных ответов
 function see_true_answers(){
@@ -148,8 +148,8 @@ setTimeout(() => {
 
         while(search != true){
             if (test_userID == arr_id[i]){
-                localStorage.name_of_tester = arr_displayName[i];
-                localStorage.id_of_tester = arr_id[i];
+                sessionStorage.name_of_tester = arr_displayName[i];
+                sessionStorage.id_of_tester = arr_id[i];
                 /*console.log("test_userID " + test_userID)
                 console.log("arr_id[i] " + arr_id[i] )*/
                 i = 0;
@@ -174,8 +174,8 @@ setTimeout(() => {
         arr.push(arr_with_true_answers)
         arr_with_true_answers = [];
 
-        arr_user_name_with_results.push(localStorage.name_of_tester);
-        arr_user_id_with_results.push(localStorage.id_of_tester);
+        arr_user_name_with_results.push(sessionStorage.name_of_tester);
+        arr_user_id_with_results.push(sessionStorage.id_of_tester);
         count_user_in_results++;
         q++;
     }
@@ -254,17 +254,17 @@ function load_answers_in_the_list(){
     document.querySelector('#list_with_name_students').addEventListener('click', function(e){ // Вешаем обработчик клика на UL, не LI
         //Получили ID, т.к. в e.target содержится элемент по которому кликнули
         var way = document.getElementById(e.target.id);
-        localStorage.name_of_one_user = way.textContent;
-        localStorage.id_of_one_user = way.nextSibling.textContent;
-        localStorage.answers_of_one_user = way.nextSibling.nextSibling.textContent;
-        console.log(localStorage.name_of_one_user)
-        console.log(localStorage.id_of_one_user)
-        console.log(localStorage.answers_of_one_user)
+        sessionStorage.name_of_one_user = way.textContent;
+        sessionStorage.id_of_one_user = way.nextSibling.textContent;
+        sessionStorage.answers_of_one_user = way.nextSibling.nextSibling.textContent;
+        console.log(sessionStorage.name_of_one_user)
+        console.log(sessionStorage.id_of_one_user)
+        console.log(sessionStorage.answers_of_one_user)
         for (var o = 1; o < id_item_accordion; o++) {
             var time_one_accordion = document.getElementById("DisplayName" + o);
-            time_one_accordion.innerHTML = localStorage.name_of_one_user;
+            time_one_accordion.innerHTML = sessionStorage.name_of_one_user;
         }
-        var arrayOfTrueAnswers = localStorage.answers_of_one_user.split(",");
+        var arrayOfTrueAnswers = sessionStorage.answers_of_one_user.split(",");
         console.log(arr_with_questions_one_test)
         for (var m = 0; m < arr_with_questions_one_test.length; m++){
             y = arrayOfTrueAnswers[m] - 1;
