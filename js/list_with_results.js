@@ -122,7 +122,7 @@ setTimeout(() => {
             }
         }
     }
-    console.log(arr_with_id_true_answers); //масив c идами правильных ответов
+    console.log(arr_with_id_true_answers); //масив в идами правильных ответов
 }, 1600);
  //доделать подсветку правильных ответов
 function see_true_answers(){
