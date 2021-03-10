@@ -1,0 +1,75 @@
+*{
+    text-decoration: none;
+    list-style: none;
+}
+center{
+    margin-top: 20vh;
+    align-items: center;
+}
+#img_google{
+    display: block;
+    border: 1px solid grey;
+    box-shadow: 1px 1px 5px black;
+    width: 100px;
+    height: 100px;
+}
+#name_google{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+#email_google{
+    font-size: 16px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+.button_on_menu{
+    display: block;
+    width: 300px;
+    margin: 10px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 14px;
+    background-color: midnightblue;
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+}
+.button_on_menu:hover{
+    display: block;
+    width: 300px;
+    margin: 10px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 14px;
+    background-color: rgb(45, 45, 179);
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+}
+#button_on_menu1{
+    display: block;
+    width: 300px;
+    margin: 10px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 14px;
+    background-color: midnightblue;
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+}
+#button_on_menu1:hover{
+    display: block;
+    width: 300px;
+    margin: 10px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 14px;
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+    background-color: rgb(45, 45, 179);
+}
+
+.green{
+    color: green;
+    font-weight: 600px;
+}
