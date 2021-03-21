@@ -2,7 +2,6 @@ function to_test() {
     document.location.href = "update_test.html";
 }
 
-
 const databaseRef_to_answers = firebase.database().ref("/answers/").child(sessionStorage.id);
 const databaseRef_to_results = firebase.database().ref("/results/").child(sessionStorage.id);
 const databaseRef_to_users = firebase.database().ref("/users/");
@@ -30,6 +29,7 @@ databaseRef_to_results.orderByKey().on('value', snapshot => {
         accordionHeader.id = "flush-heading" + id_item_accordion;
         var accordionButton = document.createElement("button");
         accordionButton.className = "accordion-button collapsed text-left";
+        accordionButton.id = "accordion-button" + id_item_accordion;
         var accordionButtonContainer = document.createElement("div")
         accordionButtonContainer.className = "container"
         var accordionButtonQuestion = document.createElement("div")
@@ -40,7 +40,7 @@ databaseRef_to_results.orderByKey().on('value', snapshot => {
         accordionButtonAnswers.style.textAlign = "left";
         for(var g = 0; g < arr_with_answers.length; g++){
             answer_g = g+1;
-            accordionButtonAnswers.innerHTML += "<p class='p-0 m-0'><span class='fw-bold' id='answer" + answer_g + "'>Відповідь: </span>" +  arr_with_answers[g].text + "</p>"
+            accordionButtonAnswers.innerHTML += "<p class='p-0 m-0' id='p_answer" +  answer_g + "'><span class='fw-bold' id='answer" + answer_g + "'>Відповідь: </span>" +  arr_with_answers[g].text + "</p>"
             //time_arr_with_answers.push("<p class='p-0 m-0'><span class='fw-bold'>Відповідь: </span>" +  arr_with_answers[g].text + "</p>")
         }
         //accordionButtonAnswers.innerHTML = time_arr_with_answers;
@@ -100,7 +100,11 @@ var count_user = 0,
     arr_id = [],
     arr = [],
     count_user_in_results = 0,
-    list_with_name_students = document.getElementById("list_with_name_students");
+    list_with_name_students = document.getElementById("list_with_name_students"),
+    dvoich_arr_with_true_answers = [],
+    dvoich_arr = [];
+    arr_with_id_true_answers_with_t = [];
+
 
 databaseRef_to_users.orderByKey().on('value', snapshot => {  
     snapshot.forEach(function (childSnapshot) {
@@ -113,29 +117,69 @@ databaseRef_to_users.orderByKey().on('value', snapshot => {
 setTimeout(() => {
     for(var q = 0; q < arr_with_questions_one_test__DELETE.length; q++){
         var time_arr = arr_with_questions_one_test__DELETE[q].answers
-        //console.log(arr_with_questions_one_test__DELETE[q])
+        //console.log(time_arr)
         for(var qq = 0; qq < time_arr.length; qq++){
             var time_time_arr = time_arr[qq]
             //console.log(time_time_arr)
             if(time_time_arr.selected){
-                arr_with_id_true_answers.push(qq+1);
+                dvoich_arr_with_true_answers.push(qq+1);
             }
         }
+        arr_with_id_true_answers.push(dvoich_arr_with_true_answers);
+        dvoich_arr_with_true_answers = [];
     }
-    console.log(arr_with_id_true_answers); //масив в идами правильных ответов
-}, 1600);
+    //console.log(arr_with_id_true_answers); //масив в идами правильных ответов
+}, 2000);
  //доделать подсветку правильных ответов
 function see_true_answers(){
-    for(var t = 1; t <= arr_with_id_true_answers; t ++){
-        console.log(">>>>>>")
-        var time_answer = document.getElementById("flush-heading" + t).getElementById("answer" + arr_with_id_true_answers[t]);
-        console.log(time_answer)
-        time_answer.className = "green";
-    }  
+    var button = document.getElementById("button_for_true_answers");
+    if(button.className == "btn btn-outline-success mb-3"){
+        console.log("true")
+        for(var t = 0; t < arr_with_id_true_answers.length; t ++){
+            //console.log(">>>>>>")
+            arr_with_id_true_answers_with_t = arr_with_id_true_answers[t]
+            for(var tt = 0; tt < arr_with_id_true_answers_with_t.length; tt++){
+                //console.log("second enter to function (see_true_answers)")
+                t++;
+                var id_answer_from_arr = arr_with_id_true_answers_with_t[tt];
+                var firstElement = document.getElementById("flush-heading" + t).children[0].childNodes[0].childNodes[0].nextSibling.childNodes[id_answer_from_arr-1]
+                //console.log(firstElement)
+                /*var secondElement = firstElement.getElementById("accordion-button" + 1);
+                console.log(time_answer)*/
+                firstElement.className += " green";
+                t--;
+            }
+        }
+        button.className = "btn btn-outline-danger mb-3"
+        button.textContent = "Закрити правильні відповіді"
+    }
+    else{
+        console.log("else")
+        for(var t = 0; t < arr_with_id_true_answers.length; t ++){
+            //console.log(">>>>>>")
+            arr_with_id_true_answers_with_t = arr_with_id_true_answers[t]
+            for(var tt = 0; tt < arr_with_id_true_answers_with_t.length; tt++){
+                //console.log("second enter to function (see_true_answers)")
+                t++;
+                var id_answer_from_arr = arr_with_id_true_answers_with_t[tt];
+                var firstElement = document.getElementById("flush-heading" + t).children[0].childNodes[0].childNodes[0].nextSibling.childNodes[id_answer_from_arr-1]
+                //console.log(firstElement)
+                /*var secondElement = firstElement.getElementById("accordion-button" + 1);
+                console.log(time_answer)*/
+                firstElement.className = "p-0 m-0";
+                t--;
+            }
+        }
+        button.className = "btn btn-outline-success mb-3"
+        button.textContent = "Показати правильні відповіді"
+    }
+    button = ""
 }
 
 setTimeout(() => {
     for(var e = 0; e < arr_with_all_questions.length; e ++){
+        //console.log(arr_with_all_questions.length)
+        //console.log(arr_with_all_questions)
         test_userID = arr_with_all_questions[e].userId; 
         test_results = arr_with_all_questions[e].questions;
         //console.log(test_results);
@@ -162,17 +206,21 @@ setTimeout(() => {
 
         for(var p = 0; p < test_results.length; p++){
             time_result = test_results[p].answers;
-            //console.log(time_result);
+            console.log(time_result);
             for(var pp = 0; pp < time_result.length; pp++){
                 if(time_result[pp].selected){
-                    arr_with_true_answers.push(time_result[pp].id)
+                    dvoich_arr.push(time_result[pp].id)
                 }
-            }
-            
+            }   
+            arr_with_true_answers.push(dvoich_arr);
+            dvoich_arr = [];
         }
-        //console.log(arr_with_true_answers)
+        //arr_with_true_answers.push(dvoich_arr);
+        console.log(arr_with_true_answers)
         arr.push(arr_with_true_answers)
+        console.log(arr)
         arr_with_true_answers = [];
+        //dvoich_arr = [];
 
         arr_user_name_with_results.push(sessionStorage.name_of_tester);
         arr_user_id_with_results.push(sessionStorage.id_of_tester);
@@ -265,10 +313,11 @@ function load_answers_in_the_list(){
             time_one_accordion.innerHTML = sessionStorage.name_of_one_user;
         }
         var arrayOfTrueAnswers = sessionStorage.answers_of_one_user.split(",");
-        console.log(arr_with_questions_one_test)
-        for (var m = 0; m < arr_with_questions_one_test.length; m++){
+        console.log(arrayOfTrueAnswers)
+        console.log(arr_with_questions_one_test__DELETE)
+        for (var m = 0; m < arr_with_questions_one_test__DELETE.length; m++){
             y = arrayOfTrueAnswers[m] - 1;
-            final_answer = arr_with_questions_one_test[m].answers[y]
+            final_answer = arr_with_questions_one_test__DELETE[m].answers[y]
             console.log(final_answer)
             console.log(final_answer.text)
             mm = m + 1;

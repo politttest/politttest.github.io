@@ -46,6 +46,6 @@ function enter_to_class(){
     var way = document.getElementById(e.target.id)
     var way_to_id_to_class = way.nextSibling.nextSibling.nextSibling.textContent;
     //console.log(way_to_id_to_class);
-    sessionStorage.id_of_class = way_to_id_to_class;
+    sessiononStorage.id_of_class = way_to_id_to_class;
     document.location.href = "info_of_the_class.html";
 })}
