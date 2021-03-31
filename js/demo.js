@@ -1,8 +1,6 @@
 function Go_To_PlayMarket(){
     document.location.href = "https://play.google.com/store/apps/details?id=com.m21droid.politest"
 }
-
-
 function clear_answer_in_the_write_test() {
     document.forms.test_answer.reset();
 }
@@ -88,10 +86,10 @@ function teacher__connect(){
     document.getElementById("teacher__auth").className = "none"
     document.getElementById("teacher__main_menu").className = "block"
 }
-function teacher__to_list_with_test(){
+/*function teacher__to_list_with_test(){
     document.getElementById("teacher__main_menu").className = "none"
     document.getElementById("teacher__to_list_with_test").className = "block"
-}
+}*/
 function teacher__test_banned(){
     var x = document.getElementById("snackbar_third");
     x.className = "show";

@@ -103,8 +103,8 @@ var count_user = 0,
     list_with_name_students = document.getElementById("list_with_name_students"),
     dvoich_arr_with_true_answers = [],
     dvoich_arr = [];
-    arr_with_id_true_answers_with_t = [];
-
+    arr_with_id_true_answers_with_t = [],
+    timeArrWithAnswers = [];
 
 databaseRef_to_users.orderByKey().on('value', snapshot => {  
     snapshot.forEach(function (childSnapshot) {
@@ -129,7 +129,7 @@ setTimeout(() => {
         dvoich_arr_with_true_answers = [];
     }
     //console.log(arr_with_id_true_answers); //масив в идами правильных ответов
-}, 2000);
+}, 2200);
  //доделать подсветку правильных ответов
 function see_true_answers(){
     var button = document.getElementById("button_for_true_answers");
@@ -227,7 +227,7 @@ setTimeout(() => {
         count_user_in_results++;
         q++;
     }
-}, 1600);
+}, 2200);
         
 
 
@@ -266,6 +266,7 @@ setTimeout(() => {
         dropdownP.className = "m-0"
         var dropdownItem = document.createElement("a");
         dropdownItem.id = "onem od"+k;
+        dropdownItem.setAttribute("name", k);
         //console.log(dropdownItem)
         dropdownItem.className = "dropdown-item pt-0 pb-0";
         dropdownItem.type = "button";
@@ -276,16 +277,18 @@ setTimeout(() => {
         id_of_tester_with_results.style.fontSize = "0px";
         id_of_tester_with_results.style.float = "left"
         id_of_tester_with_results.innerHTML = arr_user_id_with_results[k];
-        var answers_of_tester_with_results = document.createElement("span")
+        /*var answers_of_tester_with_results = document.createElement("span")
         answers_of_tester_with_results.className = "f-left"
         answers_of_tester_with_results.style.fontSize = "0px";
         answers_of_tester_with_results.style.float = "left"
         answers_of_tester_with_results.id = "results_" + k;
         answers_of_tester_with_results.innerHTML = arr[k];
+        console.log(answers_of_tester_with_results)*/
+        console.log(arr[k])
         list_with_name_students.appendChild(dropdownP);
         dropdownP.appendChild(dropdownItem)
         dropdownP.appendChild(id_of_tester_with_results)
-        dropdownP.appendChild(answers_of_tester_with_results);
+        //dropdownP.appendChild(answers_of_tester_with_results);
     }
 }, 3000);
 
@@ -302,27 +305,30 @@ function load_answers_in_the_list(){
     document.querySelector('#list_with_name_students').addEventListener('click', function(e){ // Вешаем обработчик клика на UL, не LI
         //Получили ID, т.к. в e.target содержится элемент по которому кликнули
         var way = document.getElementById(e.target.id);
+        console.log()
         sessionStorage.name_of_one_user = way.textContent;
         sessionStorage.id_of_one_user = way.nextSibling.textContent;
-        sessionStorage.answers_of_one_user = way.nextSibling.nextSibling.textContent;
+        var number_of_user = way.name;
+        var arrWithAnswersOfUser = arr[number_of_user];
+        console.log(arrWithAnswersOfUser)
         console.log(sessionStorage.name_of_one_user)
         console.log(sessionStorage.id_of_one_user)
-        console.log(sessionStorage.answers_of_one_user)
         for (var o = 1; o < id_item_accordion; o++) {
             var time_one_accordion = document.getElementById("DisplayName" + o);
             time_one_accordion.innerHTML = sessionStorage.name_of_one_user;
         }
-        var arrayOfTrueAnswers = sessionStorage.answers_of_one_user.split(",");
-        console.log(arrayOfTrueAnswers)
         console.log(arr_with_questions_one_test__DELETE)
-        for (var m = 0; m < arr_with_questions_one_test__DELETE.length; m++){
-            y = arrayOfTrueAnswers[m] - 1;
-            final_answer = arr_with_questions_one_test__DELETE[m].answers[y]
-            console.log(final_answer)
-            console.log(final_answer.text)
-            mm = m + 1;
-            document.getElementById("RowLg9_" + mm).innerHTML = final_answer.text;
+        for (var m = 1; m <= arr_with_questions_one_test__DELETE.length; m++){ //отчистка всех ответов учеников перед тем, как загрузить новые ответы (если выбирать ученика повторно)
+            document.getElementById("RowLg9_" + m).innerHTML = "";
         }
+        for (var m = 1; m <= arr_with_questions_one_test__DELETE.length; m++){
+            timeArrWithAnswers = arrWithAnswersOfUser[m-1]
+            timeArrWithAnswers.sort();
+            for(var mm = 0; mm < timeArrWithAnswers.length; mm++){
+                document.getElementById("RowLg9_" + m).innerHTML += "<p class = 'p-0 m-0'>" + arr_with_questions_one_test__DELETE[m-1].answers[timeArrWithAnswers[mm]-1].text + "</p>";
+                //document.getElementById("RowLg9_" + m).innerHTML += timeArrWithAnswers[mm];
+            }
+        } // ВЫВОД ОТВЕТОВ УЧЕНИКА В ПОЛЕ С ОТВЕТАМИ В АККОРДЕОНЕ
     })
 
 }
