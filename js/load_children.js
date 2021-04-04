@@ -1,6 +1,6 @@
 const databaseRef = firebase.database().ref("/users/");
 var auto_block = 1;
-var body_for_children = document.getElementById("list_with_children");
+var body_for_children = document.getElementById("list_with_users");
 databaseRef.orderByKey().on('value', snapshot => {
     snapshot.forEach(function (childSnapshot) {
         value = childSnapshot.val();
