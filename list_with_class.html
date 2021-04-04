@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="SHORTCUT ICON" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png/450px-%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png" type="image/x-icon">
     <title>Список з класами</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style_list_with_class.css">
     <link rel="stylesheet" href="css/style_to_all.css">
+    <link rel="stylesheet" href="css/style_modal.css">
+    <link rel="stylesheet" href="css/style_info_of_the_class.css">
 </head>
 <body>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
@@ -16,14 +19,47 @@
     <script src="js/initialization_to_politttest_own.js"></script>
     <script src="js/provekra_polsovatelya.js"></script>
     <div class="top_nav">
-        <div class="nav"> 
-            <button class="img_for_questions" onclick="to_MainMenu();">&#11148;</button>
-            <div class="word_class">Всі наявні класи</div>
-            <button class="add_for_questions" onclick="add_the_class();">&#43;</button>
+        <div class="nav mt-0 pt-0"> 
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary nav-link fs-5" onclick="to_MainMenu();">&#11148;</button>
+                </li>
+                <li class="nav-item">
+                  <p class="nav-link fs-3" href="#">Всі наявні класи</p>
+                </li>
+                <li class="nav-item">
+                  <button class="btn btn-outline-primary nav-link fs-5" onclick="add_the_class();">&#43;</button>
+                </li>
+              </ul>
         </div>
     </div>
     <div onclick="enter_to_class();" id="list_with_classes">
     </div>
+    <!-- <button class="btn btn-outline-primary text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" type="button"> 
+        <span style="font-size: 18px;"> Демоверсія </span>
+    </button> -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel1"></h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearBlockWithUsers();"></button>
+                </div>
+                <div class="modal-body p-0" style="max-height: 650px; overflow-y: auto">                
+                    <center id="list" class="block">
+                        <div id="list_with_users">
+
+                        </div>
+                    </center>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearBlockWithUsers();">Назад</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="js/load_class.js"></script>
 </body>
 </html>
