@@ -27,7 +27,7 @@ p{
     border: none;
     color: white;
     position: absolute;
-    left: 290px;
+    left: 270px;
     top: 8px;
     border-radius: 50%;
     align-items: center;
@@ -39,14 +39,14 @@ p{
     background-color: #87cefaa4;
 }
 .delete_the_child span{
-    font-size: 30px;
-    top: -9.5px;
-    left: 5px;
+    font-size: 20px;
+    top: -9px;
+    left: 6px;
     position: absolute;
     color: white;
 }
 .add_the_child{
-    display: none;
+    display: block;
     background-color: midnightblue;
 }
 .add_the_child span{
