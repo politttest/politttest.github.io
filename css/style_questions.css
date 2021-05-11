@@ -75,6 +75,7 @@
     color: #0087db;
     display: block;
     bottom: 0;
+    margin-bottom: 5px;
 }
 .delete_quest{
     background-color: #009dff;

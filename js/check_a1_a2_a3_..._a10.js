@@ -1,3 +1,4 @@
+
 if (i>0) {
     function showCount() {
         if(a1.value.length > 0){
@@ -199,7 +200,6 @@ if (i>9) {
         setTimeout(showCount, 0); // на момент oncut значение ещё старое
   };
 }
-
 function test_add_answer() {
     if (i>0) {
         function showCount() {
@@ -403,23 +403,3 @@ function test_add_answer() {
       };
     }
 }
-/*for(var k = 0; k < i; k+=1) {
-    function showCount() {
-        if(a1.value.length > 0){
-            b1.style.display = "none";
-            ch1.style.display = "block";
-        }
-        if(a1.value.length == 0){
-            b1.style.display = "block";
-            ch1.style.display = "none";
-        }
-        console.log(a1.value.length);
-    }
-    a1.onkeyup = a1.oninput = showCount;
-    a1.onpropertychange = function() {
-        if (event.propertyName == "value") showCount();
-    }
-    a1.oncut = function() {
-        setTimeout(showCount, 0); // на момент oncut значение ещё старое
-  };
-}*/

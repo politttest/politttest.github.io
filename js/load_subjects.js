@@ -8,6 +8,6 @@ databaseRef.orderByKey().on('value', snapshot => {
         var selected = document.getElementById("subject");
         var op = document.createElement("option");
         op.innerHTML = value;
+        op.id = value;
         selected.appendChild(op);
     })})
-//console.log("adwad");

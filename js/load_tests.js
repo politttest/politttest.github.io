@@ -42,7 +42,7 @@ databaseRef_tests.orderByKey().on('value', snapshot => {
         title.id = id_of_block_the_test;
         var cl1ss = document.createElement("p");
         cl1ss.className = "klass_of_test";
-        cl1ss.innerHTML = klass_of_the_test;
+        cl1ss.innerHTML = klass_of_the_test + "-й клас";
         var subject = document.createElement("p");
         subject.className = "subject_of_test";
         subject.innerHTML = subject_of_the_test;
@@ -53,6 +53,7 @@ databaseRef_tests.orderByKey().on('value', snapshot => {
         }
         else {
             time.innerHTML = "Час проходження тесту " + time_of_the_test + " хвилин";
+            time.value = time_of_the_test;
         }
         var id = document.createElement("p");
         id.className = "id_of_test";
@@ -79,7 +80,7 @@ function ID(){
     sessionStorage.name = way.textContent;
     sessionStorage.cl1ss = way.nextSibling.textContent;
     sessionStorage.subject = way.nextSibling.nextSibling.textContent;
-    sessionStorage.time = time_of_the_test;
+    sessionStorage.time = way.nextSibling.nextSibling.nextSibling.value;
     document.location.href = "update_test.html";})
 }
 

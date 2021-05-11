@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<meta name="google-signin-client_id" content="529560107564-k8c2q5abqq98s1c8tob2i3vviidl5p1m.apps.googleusercontent.com">
-	
-	<link rel="SHORTCUT ICON" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png/450px-%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png" type="image/x-icon">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<meta name="google-signin-client_id"
+		content="529560107564-k8c2q5abqq98s1c8tob2i3vviidl5p1m.apps.googleusercontent.com">
+
+	<link rel="SHORTCUT ICON"
+		href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png/450px-%D0%93%D0%B5%D1%80%D0%B1_%D0%BB%D1%96%D1%86%D0%B5%D1%8E_%C2%AB%D0%9F%D0%BE%D0%BB%D1%96%D1%82%C2%BB.png"
+		type="image/x-icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 	<link rel="stylesheet" href="icofont/icofont.css">
 	<link rel="stylesheet" href="css/style_modal.css">
 	<link rel="stylesheet" href="css/style_update_test.css">
-	<title>Politest</title>	
+	<title>Politest</title>
 </head>
+
 <body>
 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
- 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
- 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script> 
- 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
 	<script src="js/initialization_to_politttest_own.js"></script>
 	<script src="js/Authentication.js"></script>
@@ -28,70 +34,84 @@
 				<div class="container-fluid">
 					<a class="navbar-brand" href="#">
 						<img src="css/img/gerb.png" width="50" height="50" class="d-inline-block align-top gerb">
-						<span class="politest text-white display-6" >Politest</span>
+						<span class="politest text-white display-6">Politest</span>
 					</a>
 					<div class="buttons">
-						<button class="btn btn-outline-primary text-light" onclick="Authentication();"> 
+						<button class="btn btn-outline-primary text-light" onclick="Authentication();">
 							<span style="font-size: 18px;"> Авторизація </span>
 						</button>
-						<button class="btn btn-outline-primary text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" type="button"> 
+						<button class="btn btn-outline-primary text-light" data-bs-toggle="modal"
+							data-bs-target="#staticBackdrop1" type="button">
 							<span style="font-size: 18px;"> Демоверсія </span>
 						</button>
 						<button class="btn btn-outline-success text-light" onclick="Go_To_PlayMarket();">
 							<img src="css/img/Google_Play_symbol.svg.png" width="27px" height="27px">
 							<span>Завантажити Politest</span>
 						</button>
-						<button class="btn btn-outline-warning text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button">
+						<button class="btn btn-outline-warning text-light" data-bs-toggle="modal"
+							data-bs-target="#staticBackdrop" type="button">
 							<span style="font-size: 18px;">Про проєкт</span>
 						</button>
-						<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+						<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
+							tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
-									  	<h5 class="modal-title" id="staticBackdropLabel1">Демоверсія</h5>
-									  	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="Restart();"></button>
+										<h5 class="modal-title" id="staticBackdropLabel1">Демоверсія</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close" onclick="Restart();"></button>
 									</div>
 									<div class="modal-body p-0">
 										<div class="modal-body__header_container">
 											<center id="choice" class="block">
 												<h5 class="p-3">Оберіть роль</h5>
-												<button class="btn btn-primary text-light mb-4" onclick="child();">Учень</button>
-												<button class="btn btn-primary text-light mb-4" onclick="teacher();">Вчитель</button>
+												<button class="btn btn-primary text-light mb-4"
+													onclick="child();">Учень</button>
+												<button class="btn btn-primary text-light mb-4"
+													onclick="teacher();">Вчитель</button>
 											</center>
 											<center id="child__auth" class="none">
 												<h3 class="">Politest</h3>
 												<hr>
 												<center class="main_menu__auth" style="height: 545px">
 													<div class="own_container">
-														<p><img src="css/img/gerb.png" width="70px" height="70px" ></p>
-														<button class="btn btn-outline-primary own_btn" onclick="child__connect();">Войти через аккаунт Google</button>
+														<p><img src="css/img/gerb.png" width="70px" height="70px"></p>
+														<button class="btn btn-outline-primary own_btn"
+															onclick="child__connect();">Увійти через акаунт
+															Google</button>
 													</div>
 												</center>
 											</center>
 											<center id="child__main_menu" class="none">
 												<h3>Politest</h2>
-												<hr>
-												<center style="height: 545px">
-													<div class="own_container">
-														<p class="m-1"><img src="css/img/gerb.png" width="70px" height="70px" ></p>
-														<p class="m-1"><strong>Конкурс МАН</strong></p>
-														<p class="m-1">CompetitionMan@gmail.com</p>
-														<p class="m-1"><button class="btn btn-primary own_btn" onclick="child__to_write_test()">Тести</button></p>
-														<p class="m-1"><button class="btn btn-outline-primary own_btn" onclick="child__go_out()">Виход</button></p>
-													</div>
-												</center>
+													<hr>
+													<center style="height: 545px">
+														<div class="own_container">
+															<p class="m-1"><img src="css/img/gerb.png" width="70px"
+																	height="70px"></p>
+															<p class="m-1"><strong>Конкурс МАН</strong></p>
+															<p class="m-1">CompetitionMan@gmail.com</p>
+															<p class="m-1"><button class="btn btn-primary own_btn"
+																	onclick="child__to_write_test()">Тести</button></p>
+															<p class="m-1"><button
+																	class="btn btn-outline-primary own_btn"
+																	onclick="child__go_out()">Виход</button></p>
+														</div>
+													</center>
 											</center>
 											<center id="child__tests" class="none">
 												<h3 class="">Politest</h3>
 												<hr class="mb-2">
 												<center style="height: 545px">
 													<div class="w-100">
-														<button class="btn child__test_button m-2 p-0" onclick="child__write_test();">
+														<button class="btn child__test_button m-2 p-0"
+															onclick="child__write_test();">
 															<div class="child__test">
 																<p class="name_of_the_test">Знаходження кореня</p>
 																<p class="class_of_the_test">7-й клас</p>
 																<p class="subject_of_the_test">Алгебра</p>
-																<p class="time_of_the_test">Час проходження тесту: 5 хвилин</p>
+																<p class="time_of_the_test">Час проходження тесту: 5
+																	хвилин</p>
 																<p class="time_update_of_the_test">16.02.2021 18:55</p>
 																<p class="user_update_of_the_test">Автор: Де-хто</p>
 																<div class="color_of_the_test allowed"></div>
@@ -99,12 +119,15 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="btn child__test_button m-2 p-0" onclick="child__test_passed();">
+														<button class="btn child__test_button m-2 p-0"
+															onclick="child__test_passed();">
 															<div class="child__test">
-																<p class="name_of_the_test">Метод математичної індукції</p>
+																<p class="name_of_the_test">Метод математичної індукції
+																</p>
 																<p class="class_of_the_test">10-й клас</p>
 																<p class="subject_of_the_test">Алгебра</p>
-																<p class="time_of_the_test">Час проходження тесту: 10 хвилин</p>
+																<p class="time_of_the_test">Час проходження тесту: 10
+																	хвилин</p>
 																<p class="time_update_of_the_test">16.02.2021 19:55</p>
 																<p class="user_update_of_the_test">Автор: Де-хто</p>
 																<div class="color_of_the_test passed"></div>
@@ -112,12 +135,14 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="btn child__test_button m-2 p-0" onclick="child__test_banned();">
+														<button class="btn child__test_button m-2 p-0"
+															onclick="child__test_banned();">
 															<div class="child__test">
 																<p class="name_of_the_test">Метод інтервалів</p>
 																<p class="class_of_the_test">10-й клас</p>
 																<p class="subject_of_the_test">Алгебра</p>
-																<p class="time_of_the_test">Час проходження тесту: 15 хвилин</p>
+																<p class="time_of_the_test">Час проходження тесту: 15
+																	хвилин</p>
 																<p class="time_update_of_the_test">16.02.2021 20:55</p>
 																<p class="user_update_of_the_test">Автор: Де-хто</p>
 																<div class="color_of_the_test banned"></div>
@@ -126,7 +151,8 @@
 													</div>
 													<div class="snackbars">
 														<div id="snackbar_first">
-															Ви вже пройшли цей тест. Щоб отримати другу спробу, треба звернутися до вчителя.
+															Ви вже пройшли цей тест. Щоб отримати другу спробу, треба
+															звернутися до вчителя.
 														</div>
 														<div id="snackbar_second">
 															Цей тест вам ще вчитель не дозволив проходити.
@@ -137,98 +163,153 @@
 											<center id="child__write_test" class="none">
 												<h3 class="">Politest</h3>
 												<hr class="mb-2">
-												<button class="btn btn-primary button_to_end" id="openDialog">Завершити тест</button>
+												<button class="btn btn-primary button_to_end" id="openDialog">Завершити
+													тест</button>
 												<dialog>
-													<p>Ви впевненні, що хочете завершити тест? Всі ваші відповіді будут надіслані вчителеві.</p>
+													<p>Ви впевненні, що хочете завершити тест? Всі ваші відповіді будут
+														надіслані вчителеві.</p>
 													<button id="closeDialog" class="btn btn-primary">Ні, назад</button>
-													<button class="btn btn-primary" onclick="end_the_test();">Так, завершити</button>
+													<button class="btn btn-primary" onclick="end_the_test();">Так,
+														завершити</button>
 												</dialog>
 												<center style="height: 545px; position: relative;">
 													<div class="w-100">
 														<div class="answer">
 															<div class="container answers_container">
 																<form name="test_answer">
-																<div class="one_question">
-																	<p class="answer__text">Обчисліть рівняння: х = y + 10, якщо у = -5</p>
-																	<hr>
+																	<div class="one_question">
+																		<p class="answer__text">Обчисліть рівняння: х =
+																			y + 10, якщо у = -5</p>
+																		<hr>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer1"></div>
-																			<div class="col-lg-11 col-sm-11"><span>5</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer1"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>5</span>
+																			</div>
 																		</div>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer1"></div>
-																			<div class="col-lg-11 col-sm-11"><span>3</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer1"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>3</span>
+																			</div>
 																		</div>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer1"></div>
-																			<div class="col-lg-11 col-sm-11"><span>2</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer1"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>2</span>
+																			</div>
 																		</div>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer1"></div>
-																			<div class="col-lg-11 col-sm-11"><span>6</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer1"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>6</span>
+																			</div>
 																		</div>
-																</div>
-																<div class="one_question">
-																	<p class="answer__text">Обчисліть рівняння: х = y + 11, якщо у = -5</p>
-																	<hr>
+																	</div>
+																	<div class="one_question">
+																		<p class="answer__text">Обчисліть рівняння: х =
+																			y + 11, якщо у = -5</p>
+																		<hr>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer2"></div>
-																			<div class="col-lg-11 col-sm-11"><span>5</span></div>
-																		</div>
-																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer2"></div>
-																			<div class="col-lg-11 col-sm-11"><span>3</span></div>
-																		</div>
-																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer2"></div>
-																			<div class="col-lg-11 col-sm-11"><span>2</span></div>
-																		</div>
-																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer2"></div>
-																			<div class="col-lg-11 col-sm-11"><span>6</span></div>
-																		</div>
-																</div>
-																<div class="one_question">
-																	<p class="answer__text">Обчисліть рівняння: х = y + 8, якщо у = -5</p>
-																	<hr>
-																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer3"></div>
-																			<div class="col-lg-11 col-sm-11"><span>5</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer2"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>5</span>
+																			</div>
 																		</div>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer3"></div>
-																			<div class="col-lg-11 col-sm-11"><span>3</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer2"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>3</span>
+																			</div>
 																		</div>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer3"></div>
-																			<div class="col-lg-11 col-sm-11"><span>2</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer2"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>2</span>
+																			</div>
 																		</div>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer3"></div>
-																			<div class="col-lg-11 col-sm-11"><span>6</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer2"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>6</span>
+																			</div>
 																		</div>
-																</div>
-																<div class="one_question">
-																	<p class="answer__text">Обчисліть рівняння: х = y + 7, якщо у = -5</p>
-																	<hr>
+																	</div>
+																	<div class="one_question">
+																		<p class="answer__text">Обчисліть рівняння: х =
+																			y + 8, якщо у = -5</p>
+																		<hr>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer4"></div>
-																			<div class="col-lg-11 col-sm-11"><span>5</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer3"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>5</span>
+																			</div>
 																		</div>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer4"></div>
-																			<div class="col-lg-11 col-sm-11"><span>3</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer3"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>3</span>
+																			</div>
 																		</div>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer4"></div>
-																			<div class="col-lg-11 col-sm-11"><span>2</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer3"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>2</span>
+																			</div>
 																		</div>
 																		<div class="row one_answer">
-																			<div class="col-lg-1 col-sm-1"><input type="radio" name="answer4"></div>
-																			<div class="col-lg-11 col-sm-11"><span>6</span></div>
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer3"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>6</span>
+																			</div>
 																		</div>
-																</div>
-															</form>
+																	</div>
+																	<div class="one_question">
+																		<p class="answer__text">Обчисліть рівняння: х =
+																			y + 7, якщо у = -5</p>
+																		<hr>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer4"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>5</span>
+																			</div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer4"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>3</span>
+																			</div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer4"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>2</span>
+																			</div>
+																		</div>
+																		<div class="row one_answer">
+																			<div class="col-lg-1 col-sm-1"><input
+																					type="radio" name="answer4"></div>
+																			<div class="col-lg-11 col-sm-11">
+																				<span>6</span>
+																			</div>
+																		</div>
+																	</div>
+																</form>
 															</div>
 														</div>
 													</div>
@@ -239,8 +320,10 @@
 												<hr>
 												<center class="main_menu__auth" style="height: 545px">
 													<div class="own_container">
-														<p><img src="css/img/gerb.png" width="70px" height="70px" ></p>
-														<button class="btn btn-outline-primary own_btn" onclick="teacher__connect();">Войти через аккаунт Google</button>
+														<p><img src="css/img/gerb.png" width="70px" height="70px"></p>
+														<button class="btn btn-outline-primary own_btn"
+															onclick="teacher__connect();">Увійти через акаунт
+															Google</button>
 													</div>
 												</center>
 											</center>
@@ -249,13 +332,25 @@
 												<hr>
 												<center style="height: 545px">
 													<div class="own_container">
-														<p class="m-1"><img src="css/img/gerb.png" width="70px" height="70px" ></p>
+														<p class="m-1"><img src="css/img/gerb.png" width="70px"
+																height="70px"></p>
 														<p class="m-1"><strong>Конкурс МАН</strong></p>
 														<p class="m-1">CompetitionMan@gmail.com</p>
-														<p class="m-1"><button class="btn btn-primary own_btn" onclick="teacher__to_list_with_test()">Тести</button></p>
-														<p class="m-1"><button class="btn btn-primary own_btn" onclick="teacher__to_create_test()">Створити тест</button></p>
-														<p class="m-1"><button class="btn btn-primary own_btn" onclick="teacher__to_classes()">Класи</button></p>
-														<p class="m-1"><button class="btn btn-outline-primary own_btn" onclick="child__go_out()">Виход</button></p>
+														<p class="m-1"><button class="btn btn-primary own_btn"
+																onclick="teacher__to_list_with_test()">Тести</button>
+														</p>
+														<p class="m-1"><button class="btn btn-primary own_btn"
+																onclick="teacher__to_create_test()">Створити
+																тест</button></p>
+														<p class="m-1"><button class="btn btn-primary own_btn"
+																onclick="teacher__to_create_test()">Класи</button></p>
+														<p class="m-1"><button class="btn btn-outline-primary own_btn"
+																onclick="child__go_out()">Вихід</button></p>
+														<div class="snackbars">
+															<div id="create_test">
+																В демонстраційній версії не доступно.
+															</div>
+														</div>
 													</div>
 												</center>
 											</center>
@@ -265,45 +360,55 @@
 												<center style="height: 545px">
 													<div class="w-100">
 														<div class="w-100">
-															<button class="btn child__test_button m-2 p-0" onclick="teacher__update_test();">
+															<button class="btn child__test_button m-2 p-0"
+																onclick="teacher__test_banned();">
 																<div class="child__test">
 																	<p class="name_of_the_test">Знаходження кореня</p>
 																	<p class="class_of_the_test">7-й клас</p>
 																	<p class="subject_of_the_test">Алгебра</p>
-																	<p class="time_of_the_test">Час проходження тесту: 5 хвилин</p>
-																	<p class="time_update_of_the_test">16.02.2021 18:55</p>
+																	<p class="time_of_the_test">Час проходження тесту: 5
+																		хвилин</p>
+																	<p class="time_update_of_the_test">16.02.2021 18:55
+																	</p>
 																	<p class="user_update_of_the_test">Автор: Де-хто</p>
 																</div>
 															</button>
 														</div>
 														<div class="w-100">
-															<button class="btn child__test_button m-2 p-0" onclick="teacher__test_banned();">
+															<button class="btn child__test_button m-2 p-0"
+																onclick="teacher__test_banned();">
 																<div class="child__test">
-																	<p class="name_of_the_test">Метод математичної індукції</p>
+																	<p class="name_of_the_test">Метод математичної
+																		індукції</p>
 																	<p class="class_of_the_test">10-й клас</p>
 																	<p class="subject_of_the_test">Алгебра</p>
-																	<p class="time_of_the_test">Час проходження тесту: 10 хвилин</p>
-																	<p class="time_update_of_the_test">16.02.2021 19:55</p>
+																	<p class="time_of_the_test">Час проходження тесту:
+																		10 хвилин</p>
+																	<p class="time_update_of_the_test">16.02.2021 19:55
+																	</p>
 																	<p class="user_update_of_the_test">Автор: Де-хто</p>
 																</div>
 															</button>
 														</div>
 														<div class="w-100">
-															<button class="btn child__test_button m-2 p-0" onclick="teacher__test_banned();">
+															<button class="btn child__test_button m-2 p-0"
+																onclick="teacher__test_banned();">
 																<div class="child__test">
 																	<p class="name_of_the_test">Метод інтервалів</p>
 																	<p class="class_of_the_test">10-й клас</p>
 																	<p class="subject_of_the_test">Алгебра</p>
-																	<p class="time_of_the_test">Час проходження тесту: 15 хвилин</p>
-																	<p class="time_update_of_the_test">16.02.2021 20:55</p>
+																	<p class="time_of_the_test">Час проходження тесту:
+																		15 хвилин</p>
+																	<p class="time_update_of_the_test">16.02.2021 20:55
+																	</p>
 																	<p class="user_update_of_the_test">Автор: Де-хто</p>
 																</div>
 															</button>
 														</div>
-														<div class="snackbars">
-															<div id="snackbar_third">
-																В демонстраційній версії не доступно.
-															</div>
+													</div>
+													<div class="snackbars">
+														<div id="snackbar_third">
+															В демонстраційній версії не доступно.
 														</div>
 													</div>
 												</center>
@@ -314,7 +419,8 @@
 												<center>
 													<fieldset action="" class="pole_update_test">
 														<legend>Назва тесту</legend>
-														<input type="text" id="name_of_the_update_test" class="enter_pole_update_test">
+														<input type="text" id="name_of_the_update_test"
+															class="enter_pole_update_test">
 													</fieldset>
 													<fieldset action="" class="pole_update_test">
 														<legend>Клас</legend>
@@ -331,12 +437,17 @@
 													</fieldset>
 													<fieldset action="" class="pole_update_test">
 														<legend>Час проходження тесту (у хвилинах)</legend>
-														<input type="number" id="time_of_the_update_test" class="enter_pole_update_test">
+														<input type="number" id="time_of_the_update_test"
+															class="enter_pole_update_test">
 													</fieldset>
-													<button style="z-index: 5;" id="questions" onclick="teacher__to_list_with_questions();">Питання</button>
-													<button id="testers" onclick="teacher__to_list_with_testers();">Тестери</button>
-													<button id="marks" onclick="teacher__to_list_with_marks();">Оцінки учнів</button>
-													<button id="update" onclick="teacher__to_list_with_update();">Зберегти</button>
+													<button style="z-index: 5;" id="questions"
+														onclick="teacher__to_list_with_questions();">Питання</button>
+													<button id="testers"
+														onclick="teacher__to_list_with_testers();">Тестери</button>
+													<button id="marks" onclick="teacher__to_list_with_marks();">Оцінки
+														учнів</button>
+													<button id="update"
+														onclick="teacher__to_list_with_update();">Зберегти</button>
 													<button id="delete" onclick="delete_test();">Видалити</button>
 													<div class="snackbars">
 														<div id="snackbar_fifth">
@@ -350,40 +461,48 @@
 												<hr>
 												<center style="height: 545px">
 													<div class="w-100">
-														<button class="teacher__button_question" onclick="teacher__to_answer();">
+														<button class="teacher__button_question"
+															onclick="teacher__answer_banned();">
 															<div class="block__one_question">
 																<p class="name_of_the_question">Питання 1</p>
-																<p class="content_of_the_question">Обчисліть рівняння: х = y + 10, якщо у = -5</p>
+																<p class="content_of_the_question">Обчисліть рівняння: х
+																	= y + 10, якщо у = -5</p>
 																<p class="mark_of_the_question">1 бал</p>
 																<div class="delete_of_the_question"></div>
 															</div>
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_question" onclick="teacher__answer_banned();">
+														<button class="teacher__button_question"
+															onclick="teacher__answer_banned();">
 															<div class="block__one_question">
 																<p class="name_of_the_question">Питання 1</p>
-																<p class="content_of_the_question">Обчисліть рівняння: х = y + 11, якщо у = -5</p>
+																<p class="content_of_the_question">Обчисліть рівняння: х
+																	= y + 11, якщо у = -5</p>
 																<p class="mark_of_the_question">1 бал</p>
 																<div class="delete_of_the_question"></div>
 															</div>
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_question" onclick="teacher__answer_banned();">
+														<button class="teacher__button_question"
+															onclick="teacher__answer_banned();">
 															<div class="block__one_question">
 																<p class="name_of_the_question">Питання 1</p>
-																<p class="content_of_the_question">Обчисліть рівняння: х = y + 8, якщо у = -5</p>
+																<p class="content_of_the_question">Обчисліть рівняння: х
+																	= y + 8, якщо у = -5</p>
 																<p class="mark_of_the_question">1 бал</p>
 																<div class="delete_of_the_question"></div>
 															</div>
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_question" onclick="teacher__answer_banned();">
+														<button class="teacher__button_question"
+															onclick="teacher__answer_banned();">
 															<div class="block__one_question">
 																<p class="name_of_the_question">Питання 1</p>
-																<p class="content_of_the_question">Обчисліть рівняння: х = y + 7, якщо у = -5</p>
+																<p class="content_of_the_question">Обчисліть рівняння: х
+																	= y + 7, якщо у = -5</p>
 																<p class="mark_of_the_question">1 бал</p>
 																<div class="delete_of_the_question"></div>
 															</div>
@@ -406,7 +525,8 @@
 											<center id="teacher__list_with_testers" class="none">
 												<h3>Politest</h3>
 												<hr>
-												<button class="btn btn-primary button_to_end2" onclick="teacher__update_test();">Зберегти</button>
+												<button class="btn btn-primary button_to_end2"
+													onclick="teacher__update_test();">Зберегти</button>
 												<center style="height: 545px">
 													<div class="teacher__container_with_classes">
 														<div class="one_class">
@@ -414,7 +534,8 @@
 														</div>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Влад Влад</p>
 																<p class="email_of_the_user">vladvlad@gmail.com</p>
@@ -422,7 +543,8 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Віка Віка</p>
 																<p class="email_of_the_user">vikavika@gmail.com</p>
@@ -430,7 +552,8 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Дмитро Дмитро</p>
 																<p class="email_of_the_user">dimadima@gmail.com</p>
@@ -438,7 +561,8 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Марія Марія</p>
 																<p class="email_of_the_user">mashamasha@gmail.com</p>
@@ -446,7 +570,8 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Олена Олена</p>
 																<p class="email_of_the_user">olenaolena@gmail.com</p>
@@ -463,7 +588,8 @@
 											<center id="teacher__list_with_results" class="none">
 												<h3>Politest</h3>
 												<hr>
-												<button class="btn btn-primary button_to_end3" onclick="teacher__button_question();">Розіслати оцінки</button>
+												<button class="btn btn-primary button_to_end3"
+													onclick="teacher__button_question();">Розіслати оцінки</button>
 												<center style="height: 545px">
 													<div class="teacher__container_with_classes">
 														<div class="one_class">
@@ -471,7 +597,8 @@
 														</div>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question2();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question2();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Влад Влад</p>
 																<p class="mark_of_the_user">9 з 12 балів</p>
@@ -480,7 +607,8 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question2();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question2();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Віка Віка</p>
 																<p class="mark_of_the_user">10 з 12 балів</p>
@@ -489,7 +617,8 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question2();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question2();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Дмитро Дмитро</p>
 																<p class="mark_of_the_user">6 з 12 балів</p>
@@ -498,7 +627,8 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question2();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question2();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Марія Марія</p>
 																<p class="mark_of_the_user">12 з 12 балів</p>
@@ -507,7 +637,8 @@
 														</button>
 													</div>
 													<div class="w-100">
-														<button class="teacher__button_user" onclick="teacher__button_question2();">
+														<button class="teacher__button_user"
+															onclick="teacher__button_question2();">
 															<div class="teacher__container_user">
 																<p class="name_of_the_user">Олена Олена</p>
 																<p class="mark_of_the_user">10 з 12 балів</p>
@@ -525,38 +656,50 @@
 										</div>
 									</div>
 									<div class="modal-footer">
-										<button class="btn btn-outline-primary" onclick="Restart();">Переобрати роль</button>
-									  	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+										<button class="btn btn-outline-primary" onclick="Restart();">Переобрати
+											роль</button>
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Назад</button>
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- Модальное окно с информацией -->
-						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog modal-xl">
 								<div class="modal-content">
 									<div class="modal-header">
-									  	<h5 class="modal-title" id="staticBackdropLabel">Інформація про проєкт</h5>
-									  	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										<h5 class="modal-title" id="staticBackdropLabel">Інформація про проєкт</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
 									</div>
 									<div class="modal-body p-0">
-										<p class="p-3">Система тестової перевірки була розроблена учнем Кременчуцького ліцею "Політ" Федірком Владиславом для зручного тестування під час дистанційного навчання. Поки що, тестування відбувається лише в стінах ліцею "Політ".</p>
+										<p class="p-3">Система тестової перевірки була розроблена учнем Кременчуцького
+											ліцею "Політ" Федірком Владиславом для зручного тестування під час
+											дистанційного навчання. Поки що, тестування відбувається лише в стінах ліцею
+											"Політ".</p>
 									</div>
 									<div class="modal-footer">
-									  	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Назад</button>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-  				</div>
+
+				</div>
 			</nav>
-			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="padding: 72px 128px;">
+			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"
+				style="padding: 72px 128px;">
 				<div class="carousel-indicators" style="padding: 72px 128px;">
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+						class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+						aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+						aria-label="Slide 3"></button>
 				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
@@ -567,13 +710,15 @@
 					</div>
 					<div class="carousel-item">
 						<img src="css/img/4.png" class="d-block w-100" alt="...">
-			        </div>
+					</div>
 				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="visually-hidden"></span>
 				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="visually-hidden"></span>
 				</button>
@@ -584,7 +729,10 @@
 		</div>
 	</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
 	<script src="js/demo.js"></script>
 </body>
+
 </html>

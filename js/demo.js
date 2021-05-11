@@ -36,6 +36,7 @@ function child__connect(){
 function child__go_out(){
     document.getElementById("child__auth").className = "block"
     document.getElementById("child__main_menu").className = "none"
+    document.getElementById("teacher__main_menu").className = "none"
 }
 
 function child__write_test(){
@@ -86,12 +87,19 @@ function teacher__connect(){
     document.getElementById("teacher__auth").className = "none"
     document.getElementById("teacher__main_menu").className = "block"
 }
-/*function teacher__to_list_with_test(){
+function teacher__to_list_with_test(){
     document.getElementById("teacher__main_menu").className = "none"
     document.getElementById("teacher__to_list_with_test").className = "block"
-}*/
+}
 function teacher__test_banned(){
     var x = document.getElementById("snackbar_third");
+    x.className = "show";
+    setTimeout(() => {
+        x.className = x.className.replace("show", "");
+    }, 3000);
+}
+function teacher__test_ban(){
+    var x = document.getElementById("snackbar_zero");
     x.className = "show";
     setTimeout(() => {
         x.className = x.className.replace("show", "");
@@ -144,6 +152,13 @@ function teacher__button_question(){
 }
 function teacher__button_question2(){
     var x = document.getElementById("snackbar_seventh");
+    x.className = "show";
+    setTimeout(() => {
+        x.className = x.className.replace("show", "");
+    }, 3000);
+}
+function teacher__to_create_test(){
+    var x = document.getElementById("create_test");
     x.className = "show";
     setTimeout(() => {
         x.className = x.className.replace("show", "");

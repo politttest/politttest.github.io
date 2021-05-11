@@ -56,8 +56,8 @@ databaseRef.orderByKey().on('value', snapshot => {
 
 
 const databaseRefToUsers = firebase.database().ref("/users/");
-    var auto_block = 1;
-    var body_for_children = document.getElementById("list_with_users");
+var auto_block = 1;
+var body_for_children = document.getElementById("list_with_users");
     databaseRefToUsers.orderByKey().on('value', snapshot => {
         snapshot.forEach(function (childSnapshot) {
             value = childSnapshot.val();
@@ -116,7 +116,7 @@ function enter_to_class(){
     console.log(listWithSelectedUsersInClass)
     
     
-    setTimeout(() => {
+    //setTimeout(() => {
         //console.log(listWithAllUsers)
         console.log(document.getElementById("list_with_users"));  
         for(var i = 0; i < listWithSelectedUsersInClass.length; i++){
@@ -124,19 +124,20 @@ function enter_to_class(){
             var timeIdOfTrueUser = listWithAllUsers.indexOf(listWithSelectedUsersInClass[i]) + 1;
             var timeBlockOfTrueUser = document.getElementById("user" + timeIdOfTrueUser);
             var timeBlockOfTrueUserButton = timeBlockOfTrueUser.childNodes[0].nextSibling.nextSibling.nextSibling;
+            //console.log(timeBlockOfTrueUser)
             timeBlockOfTrueUser.setAttribute("style", "border: 1px solid midnightblue;")
             //console.log(timeBlockOfTrueUser)
             timeBlockOfTrueUserButton.className = "button_on_the_children add_the_child"
             timeBlockOfTrueUserButton.innerHTML = "&#10003;"
         }
-    }, 500);
+    //}, 500);
 
     
 })}
 
 function clearBlockWithUsers(){
     console.log("<<<<")
-    /*for(var i = 0; i < listWithAllUsers.length; i++){
+    for(var i = 0; i < listWithAllUsers.length; i++){
         console.log(listWithAllUsers.length)
         var timeId = i+1;
         var timeBlockOfTrueUser = document.getElementById("user" + timeId);
@@ -147,5 +148,5 @@ function clearBlockWithUsers(){
         timeBlockOfTrueUserButton.innerHTML = "&#45;"
     }
     listWithSelectedUsersInClass = "";
-    listWithAllUsers = [];*/
+    listWithAllUsers = [];
 }

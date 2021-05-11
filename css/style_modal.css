@@ -118,7 +118,7 @@ p{
     position: relative;
     margin-top: 10px;
 }
-#snackbar_second, #snackbar_first, #snackbar_third, #snackbar_forth, #snackbar_fifth, #snackbar_sixth, #snackbar_seventh{
+#snackbar_zero, #snackbar_second, #create_test, #snackbar_first, #snackbar_third, #snackbar_forth, #snackbar_fifth, #snackbar_sixth, #snackbar_seventh{
     padding: 10px;
     background-color: rgb(53, 53, 53);
     color: white;
@@ -136,7 +136,7 @@ p{
     font-size: 17px;
 }
 
-#snackbar_first.show, #snackbar_second.show, #snackbar_third.show, #snackbar_forth.show, #snackbar_fifth.show, #snackbar_sixth.show, #snackbar_seventh.show{
+#snackbar_zero.show, #snackbar_first.show, #create_test.show, #snackbar_second.show, #snackbar_third.show, #snackbar_forth.show, #snackbar_fifth.show, #snackbar_sixth.show, #snackbar_seventh.show{
     visibility: visible;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }

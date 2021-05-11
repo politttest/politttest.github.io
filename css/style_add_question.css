@@ -2,7 +2,7 @@
     border: 1px solid midnightblue;
     border-radius: 14px;
     width: 350px;
-    height: 35px;
+    height: 40px;
     margin: 10px;
 }
 .enter_pole_question{
@@ -92,4 +92,8 @@
     display: block;
     margin: auto;
     margin-top: 10px;
+}
+
+fieldset{
+    margin: 0;
 }
