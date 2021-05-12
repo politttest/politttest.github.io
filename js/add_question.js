@@ -154,12 +154,15 @@ else {
             answers: answers2
         };
             
-            var updates = {};
-            updates['/answers/' + sessionStorage.id + '/' + newPostKey] = postData1;
-            updates['/questions/' + sessionStorage.id + '/' + newPostKey] = postData2;
-          
-            return firebase.database().ref().update(updates);
+        var updates = {};
+        updates['/answers/' + sessionStorage.id + '/' + newPostKey] = postData1;
+        updates['/questions/' + sessionStorage.id + '/' + newPostKey] = postData2;
+        firebase.database().ref().update(updates);
+        setTimeout(() => {
+            document.location.href = "add_question.html";
+        }, 1500);
     }
+
 }
 
 var i = 4;
