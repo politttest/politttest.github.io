@@ -19,6 +19,7 @@ if (sessionStorage.key_answer != "") {
     document.getElementById("save_button").innerHTML = "Оновити питання"
     /* Эта функция срабатывает тогда, когда мы ИЗМЕНЯЕМ существующий тест */
     function save_the_question() {
+        сonsole.log("Эта функция срабатывает тогда, когда мы ИЗМЕНЯЕМ существующий тест")
         var quest, mark, multi = false, count = 0, sel;
         quest = document.getElementById("name_of_the_question").value;
         mark_v = document.getElementById("mark_of_the_question").value;
@@ -89,6 +90,7 @@ if (sessionStorage.key_answer != "") {
 }
 else {
     /* Эта функция срабатывает тогда, когда мы создаем НОВЫЙ тест*/
+    console.log("Эта функция срабатывает тогда, когда мы создаем НОВЫЙ тест")
     function save_the_question() {
         var quest, mark, multi = false, count = 0, sel;
         quest = document.getElementById("name_of_the_question").value;
@@ -158,12 +160,12 @@ else {
         updates['/answers/' + sessionStorage.id + '/' + newPostKey] = postData1;
         updates['/questions/' + sessionStorage.id + '/' + newPostKey] = postData2;
 
-        const temporal = new Promise((resolve, reject) => {
-            firebase.database().ref().update(updates);
-            resolve();
+        let temporal = new Promise((resolve, reject) => {
+            // firebase.database().ref().update(updates);
+            resolve(firebase.database().ref().update(updates));
         });
         temporal.then(() => {
-            document.location.href = "add_question.html";
+            document.location.href = "add_question.html";  
         })
 
 
